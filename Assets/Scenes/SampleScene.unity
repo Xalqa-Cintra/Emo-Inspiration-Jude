@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43112203, g: 0.4664765, b: 0.49927485, a: 1}
+  m_IndirectSpecularColor: {r: 0.4309903, g: 0.4662707, b: 0.49889493, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,14 +169,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 94096613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fffa5ad1ddb18d7468e73b1098f525c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 395bd639a2c794b4a917fa3b8dd211dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   deadPlayer: {fileID: 94096613}
   livingPlayer: {fileID: 1613466907}
   deadCam: {fileID: 888283996}
   deadRigidbody: {fileID: 94096614}
-  maxSpeed: 3
+  maxSpeed: 5
   isDead: 0
 --- !u!136 &94096616
 CapsuleCollider:
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1613466907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8e735783c1dc6449befa3e49533a2de, type: 3}
+  m_Script: {fileID: 11500000, guid: 50c5e27826685814ea6fa3c7d9742f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   livingPlayer: {fileID: 1613466907}
@@ -1029,5 +1029,5 @@ MonoBehaviour:
   livingCam: {fileID: 963194225}
   deadCam: {fileID: 888283996}
   livingRigidbody: {fileID: 1613466912}
-  maxSpeed: 4
+  maxSpeed: 5
   isAlive: 0
