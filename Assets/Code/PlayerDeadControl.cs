@@ -10,7 +10,10 @@ public class PlayerDeadControl : MonoBehaviour
     public GameObject deadCam;
     public Rigidbody deadRigidbody;
 
+    public GameObject FollowingNPC;
+
     public float maxSpeed = 1f;
+    public float rotationSpeed = 1f;
 
     public bool isDead;
 
@@ -29,9 +32,28 @@ public class PlayerDeadControl : MonoBehaviour
     {
         if (isDead == true)
         {
-            Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
-            deadRigidbody.velocity = new Vector3(newVelocity.x, deadRigidbody.velocity.y, newVelocity.z);
+             float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
+            Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+            movementDirection.Normalize();
+
+            transform.Translate(movementDirection * maxSpeed * Time.deltaTime, Space.World);
+
+            if(movementDirection != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
         }
 
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "StartFollow")
+        {
+            FollowingNPC.GetComponent<FollowPlayerLiving>().followPlayer = true;
+        }
     }
 }
