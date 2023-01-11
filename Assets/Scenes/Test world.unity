@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4309903, g: 0.4662707, b: 0.49889493, a: 1}
+  m_IndirectSpecularColor: {r: 0.43112203, g: 0.4664765, b: 0.49927485, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,7 +176,7 @@ MonoBehaviour:
   livingPlayer: {fileID: 1613466907}
   deadCam: {fileID: 888283996}
   deadRigidbody: {fileID: 94096614}
-  maxSpeed: 5
+  maxSpeed: 1
   isDead: 0
 --- !u!136 &94096616
 CapsuleCollider:
@@ -1029,5 +1029,5 @@ MonoBehaviour:
   livingCam: {fileID: 963194225}
   deadCam: {fileID: 888283996}
   livingRigidbody: {fileID: 1613466912}
-  maxSpeed: 5
+  maxSpeed: 1
   isAlive: 0
