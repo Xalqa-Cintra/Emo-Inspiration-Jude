@@ -16,7 +16,7 @@ public class PlayerDeadControl : MonoBehaviour
     public float rotationSpeed = 1f;
 
     public bool isDead;
-
+    public bool canMove;
     
     
 
@@ -24,13 +24,14 @@ public class PlayerDeadControl : MonoBehaviour
     void Start()
     {
         deadPlayer.tag = "DeadPlayer";
+        canMove = true;
     }
  
 
     // Update is called once per frame
     void Update()
     {
-        if (isDead == true)
+        if (isDead == true && canMove == true)
         {
              float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");

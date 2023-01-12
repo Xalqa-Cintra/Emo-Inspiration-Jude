@@ -18,12 +18,14 @@ public class PlayerLiveControl : MonoBehaviour
     float camTimer;
 
     public bool isAlive = false;
+    public bool canMove;
 
     // Start is called before the first frame update
     void Start()
     {   
         isAlive = true;
         livingPlayer.tag = "LivePlayer";
+        canMove = true;
       
     }
 
@@ -32,7 +34,7 @@ public class PlayerLiveControl : MonoBehaviour
     {
         camTimer = camTimer - Time.deltaTime;   
 
-        if (isAlive == true)
+        if (isAlive == true && canMove == true)
         {
             //cam switch code (switch to dead)
             livingCam.SetActive(true);
