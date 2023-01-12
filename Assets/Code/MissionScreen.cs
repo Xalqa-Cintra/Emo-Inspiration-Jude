@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+
 
 public class MissionScreen : MonoBehaviour
 {
+    [Header("Menu")]
     public GameObject missionUI;
     public GameObject note1;
     public GameObject note2;
@@ -13,30 +17,74 @@ public class MissionScreen : MonoBehaviour
     public GameObject returnButton;
     public GameObject closePhone;
 
+    [Header("Errand Tab")]
+    public GameObject errandUI;
+    public GameObject errand1text;
+    public GameObject errand2text;
+    public GameObject errand3text;
+    public GameObject errand4text;
+    public GameObject errand5text;
+
     private void Start() 
     {
-        missionUI.setActive(false);
-        note1.setActive(false);
-        note2.setActive(false);
-        note3.setActive(false);
-        note4.setActive(false);
-        note5.setActive(false);
-        returnButton.setActive(false);
-        closePhone.setActive(false);
-        
+        missionUI.SetActive(false);
+        errandUI.SetActive(false);
     }
     
 
-    public void OnButtonPress()
+    public void OpenMenu()
     {
-        missionUI.setActive(true);
-        note1.setActive(true);
-        note2.setActive(true);
-        note3.setActive(true);
-        note4.setActive(true);
-        note5.setActive(true);
-        returnButton.setActive(true);
-        closePhone.setActive(true);
+        missionUI.SetActive(true);
+
+    }
+    
+    public void CloseMenu()
+    {
+        missionUI.SetActive(false);
+
+        errandUI.SetActive(false);
+    }
+
+    public void OpenNote()
+    {
+        missionUI.SetActive(false);
+
+        errandUI.SetActive(true);
+    }
+    public void OpenNote1() 
+    {
+
+        errand1text.SetActive(true);
+        //if(missioncheckbool=true){settexttothis}
+
+    }
+    public void OpenNote2() 
+    {
+
+        errand2text.SetActive(true);
+        //if(missioncheckbool=true){settexttothis}
+
+    }
+    public void OpenNote3() 
+    {
+
+        errand3text.SetActive(true);
+        //if(missioncheckbool=true){settexttothis}
+
+    }
+    public void OpenNote4() 
+    {
+
+        errand4text.SetActive(true);
+        //if(missioncheckbool=true){settexttothis}
+
+    }
+    public void OpenNote5() 
+    {
+
+        errand5text.SetActive(true);
+        //if(missioncheckbool=true){settexttothis}
+
     }
 
 }
