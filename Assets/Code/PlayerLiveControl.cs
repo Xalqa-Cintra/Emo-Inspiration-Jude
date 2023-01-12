@@ -95,4 +95,6 @@ public class PlayerLiveControl : MonoBehaviour
             FollowingNPC.GetComponent<FollowPlayerLiving>().followPlayer = true;
         }
     }
+
+    // enter hitbox, if bool is true, setactive idle cutscene, set timer for idle cutscene slides, then start  a timer which is shown, then enter hitbox and press key, enter new cutscene
 }
