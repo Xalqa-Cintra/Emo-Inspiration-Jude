@@ -10,6 +10,7 @@ public class PlayerLiveControl : MonoBehaviour
     public GameObject livingCam;
     public GameObject deadCam;
     public Rigidbody livingRigidbody;
+    public GameObject dialogueBox;
 
     public GameObject FollowingNPC;
 
@@ -19,6 +20,8 @@ public class PlayerLiveControl : MonoBehaviour
 
     public bool isAlive = false;
     public bool canMove;
+    public bool canStartQuest;
+    public bool canStartQuest2;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class PlayerLiveControl : MonoBehaviour
         isAlive = true;
         livingPlayer.tag = "LivePlayer";
         canMove = true;
+        dialogueBox.SetActive(false);
       
     }
 
@@ -62,7 +66,14 @@ public class PlayerLiveControl : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
 
-
+            if(canStartQuest == true && Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("start mariachi quest");
+            }
+            if(canStartQuest2 == true && Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("start flamenco quest");
+            }
         }
 
         if (isAlive == false)
@@ -95,7 +106,24 @@ public class PlayerLiveControl : MonoBehaviour
         }
         if(other.tag == "Quest 1")
         {
-            Debug.Log ("quest start");
+            canStartQuest = true;
+        }
+        if(other.tag == "Quest 2")
+        {
+            canStartQuest2 = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        
+        if(other.tag == "Quest 1")
+        {
+            canStartQuest = false;
+        }
+        if(other.tag == "Quest 2")
+        {
+            canStartQuest2 = false;
         }
     }
 

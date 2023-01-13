@@ -8,6 +8,7 @@ TagManager:
   - LivePlayer
   - StartFollow
   - Quest 1
+  - Quest 2
   layers:
   - Default
   - TransparentFX
