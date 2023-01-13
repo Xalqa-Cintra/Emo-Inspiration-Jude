@@ -83,7 +83,6 @@ public class PlayerLiveControl : MonoBehaviour
            
 
         }
-        Debug.Log(camTimer);
 
         
     }
@@ -93,6 +92,10 @@ public class PlayerLiveControl : MonoBehaviour
         if(other.tag == "StartFollow")
         {
             FollowingNPC.GetComponent<FollowPlayerLiving>().followPlayer = true;
+        }
+        if(other.tag == "Quest 1")
+        {
+            Debug.Log ("quest start");
         }
     }
 

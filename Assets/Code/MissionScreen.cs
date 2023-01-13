@@ -18,6 +18,7 @@ public class MissionScreen : MonoBehaviour
     public GameObject note5;
     public GameObject returnButton;
     public GameObject closePhone;
+    public GameObject HUD;
 
     [Header("Errand Tab")]
     public GameObject errandUI;
@@ -45,6 +46,7 @@ public class MissionScreen : MonoBehaviour
     {
         openPhone.SetActive(false);
         missionUI.SetActive(true);
+        HUD.SetActive(false);
 
 
     }
@@ -54,6 +56,7 @@ public class MissionScreen : MonoBehaviour
         missionUI.SetActive(false);
         openPhone.SetActive(true);
         errandUI.SetActive(false);
+        HUD.SetActive(true);
     }
 
     public void OpenNote()

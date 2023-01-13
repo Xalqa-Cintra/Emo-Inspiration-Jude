@@ -56,5 +56,9 @@ public class PlayerDeadControl : MonoBehaviour
         {
             FollowingNPC.GetComponent<FollowPlayerLiving>().followPlayer = true;
         }
+         if(other.tag == "Quest 1")
+        {
+            Debug.Log ("quest start");
+        }
     }
 }
