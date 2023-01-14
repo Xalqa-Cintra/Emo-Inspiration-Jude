@@ -10,7 +10,6 @@ public class PlayerLiveControl : MonoBehaviour
     public GameObject livingCam;
     public GameObject deadCam;
     public Rigidbody livingRigidbody;
-    public GameObject dialogueBox;
 
     public GameObject FollowingNPC;
 
@@ -29,7 +28,6 @@ public class PlayerLiveControl : MonoBehaviour
         isAlive = true;
         livingPlayer.tag = "LivePlayer";
         canMove = true;
-        dialogueBox.SetActive(false);
       
     }
 
@@ -76,7 +74,7 @@ public class PlayerLiveControl : MonoBehaviour
             }
         }
 
-        if (isAlive == false)
+        if (isAlive == false && canMove == true)
         { 
             //cam switch code (switch to living)
             livingCam.SetActive(false);
@@ -112,6 +110,10 @@ public class PlayerLiveControl : MonoBehaviour
         {
             canStartQuest2 = true;
         }
+        if(other.tag == "DVD")
+        {
+            GetComponent<DialogueCode>().canQuestP2 = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -126,6 +128,7 @@ public class PlayerLiveControl : MonoBehaviour
             canStartQuest2 = false;
         }
     }
+
 
     // enter hitbox, if bool is true, setactive idle cutscene, set timer for idle cutscene slides, then start  a timer which is shown, then enter hitbox and press key, enter new cutscene
 }

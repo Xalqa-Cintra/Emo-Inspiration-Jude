@@ -9,6 +9,7 @@ TagManager:
   - StartFollow
   - Quest 1
   - Quest 2
+  - DVD
   layers:
   - Default
   - TransparentFX

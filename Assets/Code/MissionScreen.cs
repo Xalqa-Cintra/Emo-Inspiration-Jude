@@ -25,11 +25,14 @@ public class MissionScreen : MonoBehaviour
     public GameObject errandTextBox;
 
     [Header ("Text")]
-    public string errand1Text = ("Go help the bullfighter");
+    public string errand1Text = ("Go help the bullfighter, More will be added in the full game");
     public string errand2Text = ("Go help the Flamenco dancer");
     public string errand3Text = ("Go fix the bridge");
     public string errand4Text = ("Go help the elderly");
     public string errand5Text = ("Go save Mr. Mariachi");
+
+
+    
 
     Text textElement;
 
@@ -39,6 +42,7 @@ public class MissionScreen : MonoBehaviour
         errandUI.SetActive(false);
         returnButton.SetActive(false);
         textElement = errandTextBox.GetComponent<Text>();
+
     }
     
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4309903, g: 0.4662707, b: 0.49889493, a: 1}
+  m_IndirectSpecularColor: {r: 0.43112203, g: 0.4664765, b: 0.49927485, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 94096616}
   - component: {fileID: 94096615}
   - component: {fileID: 94096614}
+  - component: {fileID: 94096620}
   m_Layer: 0
   m_Name: Dead Player
   m_TagString: DeadPlayer
@@ -259,6 +260,118 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94096620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94096613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6febf8dd2d744c4e9b3da34fb10760b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inDialogue: 0
+  flamencoDialogue: 0
+  mariachiDialogue: 0
+  mariachiErrand2: 0
+  canQuest: 0
+  canQuestP2: 0
+  playerLive: {fileID: 1613466907}
+  playerDead: {fileID: 94096613}
+  textBox: {fileID: 189096003}
+  textBoxBorder: {fileID: 1283985382}
+  mLine1: 
+  mLine2: 
+  mLine3: 
+  mLine4: 
+  mLine5: 
+  mLine6: 
+  mLine7: 
+  mLine8: 
+  mLine9: 
+  mLine10: 
+  textElement: {fileID: 189096005}
+--- !u!1 &189096003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189096004}
+  - component: {fileID: 189096006}
+  - component: {fileID: 189096005}
+  m_Layer: 5
+  m_Name: Dialogue text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &189096004
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189096003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 322070577}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5.4858, y: -354.76}
+  m_SizeDelta: {x: 1117.1353, y: 210.47}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &189096005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189096003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: HI
+--- !u!222 &189096006
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189096003}
+  m_CullTransparentMesh: 1
 --- !u!1 &249185234
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +645,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote
         m_Mode: 1
@@ -544,7 +657,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote3
         m_Mode: 1
@@ -764,6 +877,7 @@ GameObject:
   - component: {fileID: 322070576}
   - component: {fileID: 322070575}
   - component: {fileID: 322070574}
+  - component: {fileID: 322070578}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -848,14 +962,44 @@ RectTransform:
   - {fileID: 2145874948}
   - {fileID: 1536132760}
   - {fileID: 1283985383}
+  - {fileID: 189096004}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &322070578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322070573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93777bb40eedeb44ae8908f198ca720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openPhone: {fileID: 1536132759}
+  missionUI: {fileID: 2119348009}
+  note1: {fileID: 1625226176}
+  note2: {fileID: 1176032459}
+  note3: {fileID: 290149724}
+  note4: {fileID: 1221606792}
+  note5: {fileID: 1501641780}
+  returnButton: {fileID: 992622303}
+  closePhone: {fileID: 1255602953}
+  HUD: {fileID: 2145874947}
+  errandUI: {fileID: 822831935}
+  errandTextBox: {fileID: 307968353}
+  errand1Text: Go help the bullfighter, more will be added in the full game
+  errand2Text: Go help the Flamenco dancer
+  errand3Text: Go fix the bridge
+  errand4Text: Go help the elderly
+  errand5Text: Go save Mr. Mariachi
 --- !u!1 &459126041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1893,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: returnScreen
         m_Mode: 1
@@ -1881,7 +2025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote
         m_Mode: 1
@@ -1893,7 +2037,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote2
         m_Mode: 1
@@ -2055,7 +2199,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote
         m_Mode: 1
@@ -2067,7 +2211,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote4
         m_Mode: 1
@@ -2200,7 +2344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: CloseMenu
         m_Mode: 1
@@ -2386,7 +2530,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364261147
 GameObject:
@@ -2627,7 +2771,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote
         m_Mode: 1
@@ -2639,7 +2783,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote5
         m_Mode: 1
@@ -2700,7 +2844,6 @@ GameObject:
   - component: {fileID: 1536132760}
   - component: {fileID: 1536132764}
   - component: {fileID: 1536132762}
-  - component: {fileID: 1536132761}
   - component: {fileID: 1536132763}
   m_Layer: 5
   m_Name: Open Phone
@@ -2728,35 +2871,6 @@ RectTransform:
   m_AnchoredPosition: {x: -794, y: -396}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1536132761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536132759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a93777bb40eedeb44ae8908f198ca720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openPhone: {fileID: 1536132759}
-  missionUI: {fileID: 2119348009}
-  note1: {fileID: 1625226176}
-  note2: {fileID: 1176032459}
-  note3: {fileID: 290149724}
-  note4: {fileID: 1221606792}
-  note5: {fileID: 1501641780}
-  returnButton: {fileID: 992622303}
-  closePhone: {fileID: 1255602953}
-  HUD: {fileID: 2145874947}
-  errandUI: {fileID: 822831935}
-  errandTextBox: {fileID: 307968353}
-  errand1Text: Go help the Bullfighter
-  errand2Text: Go help the Dancer
-  errand3Text: Go fix the generator
-  errand4Text: Go help the elderly
-  errand5Text: Go Save Mr. Mariachi
 --- !u!114 &1536132762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2801,7 +2915,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenMenu
         m_Mode: 1
@@ -2861,6 +2975,7 @@ GameObject:
   - component: {fileID: 1613466909}
   - component: {fileID: 1613466908}
   - component: {fileID: 1613466913}
+  - component: {fileID: 1613466914}
   - component: {fileID: 1613466912}
   m_Layer: 0
   m_Name: Living Player
@@ -2980,7 +3095,6 @@ MonoBehaviour:
   livingCam: {fileID: 963194225}
   deadCam: {fileID: 888283996}
   livingRigidbody: {fileID: 1613466912}
-  dialogueBox: {fileID: 1283985382}
   FollowingNPC: {fileID: 459126041}
   maxSpeed: 4
   rotationSpeed: 360
@@ -2988,6 +3102,40 @@ MonoBehaviour:
   canMove: 0
   canStartQuest: 0
   canStartQuest2: 0
+--- !u!114 &1613466914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613466907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6febf8dd2d744c4e9b3da34fb10760b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inDialogue: 0
+  flamencoDialogue: 0
+  mariachiDialogue: 0
+  mariachiErrand2: 0
+  canQuest: 0
+  canQuestP2: 0
+  playerLive: {fileID: 1613466907}
+  playerDead: {fileID: 94096613}
+  textBox: {fileID: 189096003}
+  textBoxBorder: {fileID: 1283985382}
+  mLine1: Hi there!
+  mLine2: Can you help me?
+  mLine3: I seem to have misplaced my dvd, it has my most precious memory
+  mLine4: If you find it, i would be so grateful
+  mLine5: Wait a minute. You went to the same flamenco college as me. Small world
+    huh?
+  mLine6: Well once you help me find this dvd, i'd love to have a dance with you
+  mLine7: Is that alright?
+  mLine8: Perfect!
+  mLine9: Aww. Maybe next time, see ya later then!
+  mLine10: Thank you, lets hurry up and find that dvd!
+  textElement: {fileID: 189096005}
 --- !u!1 &1625226176
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,7 +3218,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote
         m_Mode: 1
@@ -3082,7 +3230,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1536132761}
+      - m_Target: {fileID: 322070578}
         m_TargetAssemblyTypeName: MissionScreen, Assembly-CSharp
         m_MethodName: OpenNote1
         m_Mode: 1
@@ -3132,6 +3280,101 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625226176}
   m_CullTransparentMesh: 1
+--- !u!1 &1865487147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865487151}
+  - component: {fileID: 1865487150}
+  - component: {fileID: 1865487149}
+  - component: {fileID: 1865487148}
+  m_Layer: 0
+  m_Name: DVD pickup
+  m_TagString: DVD
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1865487148
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865487147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1865487149
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865487147}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1865487150
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865487147}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1865487151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865487147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.74, y: 1.07, z: 5.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1915162063
 GameObject:
   m_ObjectHideFlags: 0
