@@ -19,8 +19,7 @@ public class PlayerLiveControl : MonoBehaviour
 
     public bool isAlive = false;
     public bool canMove;
-    public bool canStartQuest;
-    public bool canStartQuest2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -64,14 +63,6 @@ public class PlayerLiveControl : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
 
-            if(canStartQuest == true && Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("start mariachi quest");
-            }
-            if(canStartQuest2 == true && Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("start flamenco quest");
-            }
         }
 
         if (isAlive == false && canMove == true)
@@ -102,32 +93,15 @@ public class PlayerLiveControl : MonoBehaviour
         {
             FollowingNPC.GetComponent<FollowPlayerLiving>().followPlayer = true;
         }
-        if(other.tag == "Quest 1")
-        {
-            canStartQuest = true;
-        }
-        if(other.tag == "Quest 2")
-        {
-            canStartQuest2 = true;
-        }
+        
         if(other.tag == "DVD")
         {
             GetComponent<DialogueCode>().canQuestP2 = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        
-        if(other.tag == "Quest 1")
-        {
-            canStartQuest = false;
-        }
-        if(other.tag == "Quest 2")
-        {
-            canStartQuest2 = false;
-        }
-    }
+   
+    
 
 
     // enter hitbox, if bool is true, setactive idle cutscene, set timer for idle cutscene slides, then start  a timer which is shown, then enter hitbox and press key, enter new cutscene
