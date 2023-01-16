@@ -26,11 +26,19 @@ public class MissionScreen : MonoBehaviour
 
     [Header ("Text")]
     public string errand1Text = ("Go help the bullfighter, More will be added in the full game");
-    public string errand2Text = ("Go help the Flamenco dancer");
+   
     public string errand3Text = ("Go fix the bridge");
     public string errand4Text = ("Go help the elderly");
     public string errand5Text = ("Go save Mr. Mariachi");
 
+    [Header ("Flamenco phases")]
+    public string errand2Text = ("Go help the Flamenco dancer");
+    public string errand2p2Text = ("");
+    public string errand2p3Text = ("");
+
+    [Header ("Variables")]
+    public bool flamencoPart2;
+    public bool flamencoPart3;
 
     
 
@@ -72,35 +80,46 @@ public class MissionScreen : MonoBehaviour
     }
     public void OpenNote1() 
     {
-
+        //bullfighter
         textElement.text = errand1Text;
         //if(missioncheckbool=true){settexttothis}
 
     }
     public void OpenNote2() 
     {
-
-        textElement.text = errand2Text;
-        //if(missioncheckbool=true){settexttothis}
+        //flamenco
+        if(flamencoPart2 == false && flamencoPart3 == false)
+        {
+           textElement.text = errand2Text; 
+        }
+        if(flamencoPart2 == true && flamencoPart3 == false)
+        {
+           textElement.text = errand2p2Text; 
+        }
+        if(flamencoPart2 == true && flamencoPart3 == true)
+        {
+           textElement.text = errand2p3Text; 
+        }
+        
 
     }
     public void OpenNote3() 
     {
-
+        //bridge
         textElement.text = errand3Text;
         //if(missioncheckbool=true){settexttothis}
 
     }
     public void OpenNote4() 
     {
-
+        //elders
         textElement.text = errand4Text;
         //if(missioncheckbool=true){settexttothis}
 
     }
     public void OpenNote5() 
     {
-
+        //mariachi
         textElement.text = errand5Text;
         //if(missioncheckbool=true){settexttothis}
 

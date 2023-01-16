@@ -8,15 +8,16 @@ using UnityEngine.XR;
 public class DialogueCode : MonoBehaviour
 {
     [Header("Variables")]
+    public int musicianDialogue;
     public int flamencoDialogue;
-    public int mariachiDialogue;
-    public bool mariachiErrand2;
+    public bool flamencoErrand2;
     public bool canQuest;
     public bool canQuestP2;
     public bool yes;
     public bool no;
     public bool inChoice;
     public bool inDialogue;
+    public bool doneFlamenco;
 
     [Header("GameObjects")]
     public GameObject playerLive;
@@ -25,6 +26,7 @@ public class DialogueCode : MonoBehaviour
     public GameObject textBoxBorder;
     public GameObject yesButton;
     public GameObject noButton;
+    public GameObject Canvas;
 
     [Header("Flamenco Text")] // got mixed up while codin
     public string mLine1 = "Hi there!";
@@ -51,11 +53,11 @@ public class DialogueCode : MonoBehaviour
         textBoxBorder.SetActive(false);
         canQuest = true;
         inDialogue = false;
-        mariachiErrand2 = false;
+        flamencoErrand2 = false;
         yes = false;
         no = false;
+        musicianDialogue = 0;
         flamencoDialogue = 0;
-        mariachiDialogue = 0;
         yesButton.SetActive(false);
         noButton.SetActive(false);
         inChoice = false;
@@ -70,7 +72,7 @@ public class DialogueCode : MonoBehaviour
             EnterDialogue();
             if (inChoice == false && Input.GetKeyDown(KeyCode.E))
             {
-                mariachiDialogue++;
+                flamencoDialogue++;
             }
             
             Dialogue();
@@ -82,7 +84,7 @@ public class DialogueCode : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((canQuest == true || canQuestP2 == true) && other.tag == "Quest 1")
+        if ((canQuest == true || canQuestP2 == true) && other.tag == "Quest 1" && doneFlamenco == false)
         {
             inDialogue = true;
         }
@@ -90,7 +92,7 @@ public class DialogueCode : MonoBehaviour
 
     private void Dialogue() 
     { 
-        switch (mariachiDialogue)
+        switch (flamencoDialogue)
         {
             case 0:
                 textElement.text = mLine1;
@@ -127,11 +129,12 @@ public class DialogueCode : MonoBehaviour
                 break;
             case 8 when no:
                 ExitDialogue();
-                mariachiDialogue = 0;
+                flamencoDialogue = 0;
                 canQuest = true;
                 break;
             case 9:
-                mariachiDialogue++;
+                flamencoDialogue++;
+                Canvas.GetComponent<MissionScreen>().flamencoPart2 = true;
                 ExitDialogue();
                 break;
             case 10:
@@ -145,6 +148,8 @@ public class DialogueCode : MonoBehaviour
                 break;
             case 13:
                 textElement.text = mLine14;
+                doneFlamenco = true;
+                Canvas.GetComponent<MissionScreen>().flamencoPart3 = true;
                 break;
             case 14:
                 ExitDialogue();
@@ -178,20 +183,20 @@ public class DialogueCode : MonoBehaviour
         no = false;
     }
 
-    public void ButtonYes()
+    public void ButtonYesFlamenco()
     {
         yes = true;
-        mariachiDialogue++;
+        flamencoDialogue++;
         yesButton.SetActive(false);
         noButton.SetActive(false);
         inChoice = false;
         
     }
 
-    public void ButtonNo()
+    public void ButtonNoFlamenco()
     {
         no = true;
-        mariachiDialogue++;
+        flamencoDialogue++;
         yesButton.SetActive(false);
         noButton.SetActive(false);
         inChoice = false;

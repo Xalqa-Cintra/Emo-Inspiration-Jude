@@ -272,21 +272,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6febf8dd2d744c4e9b3da34fb10760b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicianDialogue: 0
   flamencoDialogue: 0
-  mariachiDialogue: 0
-  mariachiErrand2: 0
+  flamencoErrand2: 0
   canQuest: 0
   canQuestP2: 0
   yes: 0
   no: 0
   inChoice: 0
   inDialogue: 0
+  doneFlamenco: 0
   playerLive: {fileID: 1613466907}
   playerDead: {fileID: 94096613}
   textBox: {fileID: 189096003}
   textBoxBorder: {fileID: 1283985382}
-  yesButton: {fileID: 0}
-  noButton: {fileID: 0}
+  yesButton: {fileID: 1561325739}
+  noButton: {fileID: 1343642188}
+  Canvas: {fileID: 322070573}
   mLine1: 
   mLine2: 
   mLine3: 
@@ -1007,10 +1009,15 @@ MonoBehaviour:
   errandUI: {fileID: 822831935}
   errandTextBox: {fileID: 307968353}
   errand1Text: Go help the bullfighter, more will be added in the full game
-  errand2Text: Go help the Flamenco dancer
   errand3Text: Go fix the bridge
   errand4Text: Go help the elderly
   errand5Text: Go save Mr. Mariachi
+  errand2Text: Go help the Flamenco dancer
+  errand2p2Text: 'Find the DVD (Optional: find her partner in the land of the Dead)
+    and then return it to her'
+  errand2p3Text: I'm done, now to follow the alebrije again.
+  flamencoPart2: 0
+  flamencoPart3: 0
 --- !u!1 &459126041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +1914,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Living Camera
   m_TagString: MainCamera
@@ -1979,6 +1987,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 42.417, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 93c24a3cfe9c6e74ca0f511d00da3605, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 1
 --- !u!1 &992622303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,8 +2721,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.44076967, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.5754717, g: 0.25367734, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2720,7 +2745,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1613466914}
         m_TargetAssemblyTypeName: DialogueCode, Assembly-CSharp
-        m_MethodName: ButtonNo
+        m_MethodName: ButtonNoFlamenco
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2928,68 +2953,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1462021258
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1462021261}
-  - component: {fileID: 1462021260}
-  - component: {fileID: 1462021259}
-  m_Layer: 0
-  m_Name: Post-process Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1462021259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462021258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 430b4b58e5222e84a8daceba73ba2b35, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
---- !u!65 &1462021260
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462021258}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1462021261
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462021258}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1022.9812, y: 267.717, z: 172.72812}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1501641780
 GameObject:
@@ -3325,8 +3288,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 1, b: 0.6579592, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.4811321, b: 0.31617254, a: 1}
+    m_PressedColor: {r: 0, g: 1, b: 0.91385865, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3349,7 +3312,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1613466914}
         m_TargetAssemblyTypeName: DialogueCode, Assembly-CSharp
-        m_MethodName: ButtonYes
+        m_MethodName: ButtonYesFlamenco
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3547,21 +3510,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6febf8dd2d744c4e9b3da34fb10760b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicianDialogue: 0
   flamencoDialogue: 0
-  mariachiDialogue: 0
-  mariachiErrand2: 0
+  flamencoErrand2: 0
   canQuest: 0
   canQuestP2: 0
   yes: 0
   no: 0
   inChoice: 0
   inDialogue: 0
+  doneFlamenco: 0
   playerLive: {fileID: 1613466907}
   playerDead: {fileID: 94096613}
   textBox: {fileID: 189096003}
   textBoxBorder: {fileID: 1283985382}
   yesButton: {fileID: 1561325739}
   noButton: {fileID: 1343642188}
+  Canvas: {fileID: 322070573}
   mLine1: Hi there!
   mLine2: Can you help me?
   mLine3: I seem to have misplaced my dvd, it has my most precious memory
@@ -3816,7 +3781,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1915162063
 GameObject:
