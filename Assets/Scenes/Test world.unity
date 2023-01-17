@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 94096616}
   - component: {fileID: 94096615}
   - component: {fileID: 94096614}
-  - component: {fileID: 94096620}
   m_Layer: 0
   m_Name: Dead Player
   m_TagString: DeadPlayer
@@ -260,50 +259,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &94096620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94096613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6febf8dd2d744c4e9b3da34fb10760b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicianDialogue: 0
-  flamencoDialogue: 0
-  flamencoErrand2: 0
-  canQuest: 0
-  canQuestP2: 0
-  yes: 0
-  no: 0
-  inChoice: 0
-  inDialogue: 0
-  doneFlamenco: 0
-  playerLive: {fileID: 1613466907}
-  playerDead: {fileID: 94096613}
-  textBox: {fileID: 189096003}
-  textBoxBorder: {fileID: 1283985382}
-  yesButton: {fileID: 1561325739}
-  noButton: {fileID: 1343642188}
-  Canvas: {fileID: 322070573}
-  mLine1: 
-  mLine2: 
-  mLine3: 
-  mLine4: 
-  mLine5: 
-  mLine6: 
-  mLine7: 
-  mLine8: 
-  mLine9: 
-  mLine10: 
-  mLine11: 
-  mLine12: 
-  mLine13: 
-  mLine14: 
-  textElement: {fileID: 189096005}
 --- !u!1 &189096003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,13 +966,17 @@ MonoBehaviour:
   errand1Text: Go help the bullfighter, more will be added in the full game
   errand3Text: Go fix the bridge
   errand4Text: Go help the elderly
-  errand5Text: Go save Mr. Mariachi
   errand2Text: Go help the Flamenco dancer
   errand2p2Text: 'Find the DVD (Optional: find her partner in the land of the Dead)
     and then return it to her'
   errand2p3Text: I'm done, now to follow the alebrije again.
+  errand5Text: Go save Mr. Mariachi
+  errand5p2Text: 
+  errand5p3Text: 
   flamencoPart2: 0
   flamencoPart3: 0
+  mariachiPart2: 0
+  mariachiPart3: 0
 --- !u!1 &459126041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1586,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -1885,7 +1844,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -1903,6 +1862,101 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888968598}
   m_CullTransparentMesh: 1
+--- !u!1 &904580260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 904580264}
+  - component: {fileID: 904580263}
+  - component: {fileID: 904580262}
+  - component: {fileID: 904580261}
+  m_Layer: 0
+  m_Name: Ending
+  m_TagString: MariachiEnd
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &904580261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904580260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &904580262
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904580260}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &904580263
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904580260}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &904580264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904580260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.3, y: 1.13, z: 13.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,12 +3568,16 @@ MonoBehaviour:
   flamencoDialogue: 0
   flamencoErrand2: 0
   canQuest: 0
-  canQuestP2: 0
+  canQuestP2Flamenco: 0
+  canQuestP2Mariachi: 0
   yes: 0
   no: 0
   inChoice: 0
   inDialogue: 0
+  inDialogueFlamenco: 0
+  inDialogueMariachi: 0
   doneFlamenco: 0
+  doneMariachi: 0
   playerLive: {fileID: 1613466907}
   playerDead: {fileID: 94096613}
   textBox: {fileID: 189096003}
@@ -3527,6 +3585,7 @@ MonoBehaviour:
   yesButton: {fileID: 1561325739}
   noButton: {fileID: 1343642188}
   Canvas: {fileID: 322070573}
+  End: {fileID: 904580260}
   mLine1: Hi there!
   mLine2: Can you help me?
   mLine3: I seem to have misplaced my dvd, it has my most precious memory
@@ -3543,6 +3602,26 @@ MonoBehaviour:
   mLine13: Well. Now that thats sorted out, may i have this dance? The DVD has the
     dance we were taught on it, so you can watch that before we dance.
   mLine14: Let's dance then.
+  fLine1: 1
+  fLine2: 2
+  fLine3: 3
+  fLine4: 4
+  fLine5: 5
+  fLine6: 6
+  fLine7: 7
+  fLine8: 8
+  fLine9: 9
+  fLine10: 0
+  fLine11: 11
+  fLine12: 12
+  fLine13: 13
+  fLine14: 14
+  yesFlamenco: Sure, let's find your dvd
+  noFlamenco: I'm sorry, I'm busy right now
+  yesMusician: aye
+  noMusician: nay
+  yesoption: {fileID: 888968600}
+  nooption: {fileID: 836679866}
   textElement: {fileID: 189096005}
 --- !u!1 &1625226176
 GameObject:
@@ -3777,7 +3856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865487147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.74, y: 1.07, z: 5.24}
+  m_LocalPosition: {x: 5.74, y: 1.07, z: -0.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

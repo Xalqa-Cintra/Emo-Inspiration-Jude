@@ -96,7 +96,11 @@ public class PlayerLiveControl : MonoBehaviour
         
         if(other.tag == "DVD")
         {
-            GetComponent<DialogueCode>().canQuestP2 = true;
+            GetComponent<DialogueCode>().canQuestP2Flamenco = true;
+        }
+        if (other.tag == "MariachiEnd")
+        {
+            GetComponent<DialogueCode>().canQuestP2Mariachi = true;
         }
     }
 

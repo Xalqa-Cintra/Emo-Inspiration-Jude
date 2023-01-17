@@ -12,12 +12,16 @@ public class DialogueCode : MonoBehaviour
     public int flamencoDialogue;
     public bool flamencoErrand2;
     public bool canQuest;
-    public bool canQuestP2;
+    public bool canQuestP2Flamenco;
+    public bool canQuestP2Mariachi;
     public bool yes;
     public bool no;
     public bool inChoice;
     public bool inDialogue;
+    public bool inDialogueFlamenco;
+    public bool inDialogueMariachi;
     public bool doneFlamenco;
+    public bool doneMariachi;
 
     [Header("GameObjects")]
     public GameObject playerLive;
@@ -27,6 +31,7 @@ public class DialogueCode : MonoBehaviour
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject Canvas;
+    public GameObject End;
 
     [Header("Flamenco Text")] // got mixed up while codin
     public string mLine1 = "Hi there!";
@@ -43,6 +48,31 @@ public class DialogueCode : MonoBehaviour
     public string mLine12 = "Thank you so much Dude, i've been looking for this for ages.";
     public string mLine13= "Well. Now that thats sorted out, may i have this dance? The DVD has the dance we were taught on it, so you can watch that before we dance.";
     public string mLine14 = "";
+
+    [Header("Mariachi Text")] // got mixed up while codin
+    public string fLine1;
+    public string fLine2;
+    public string fLine3;
+    public string fLine4;
+    public string fLine5;
+    public string fLine6;
+    public string fLine7;
+    public string fLine8;
+    public string fLine9;
+    public string fLine10;
+    public string fLine11;
+    public string fLine12;
+    public string fLine13;
+    public string fLine14;
+
+    [Header("Yes/No text options")]
+    public string yesFlamenco;
+    public string noFlamenco;
+    public string yesMusician;
+    public string noMusician;
+
+    public Text yesoption;
+    public Text nooption;
 
     public Text textElement;
 
@@ -61,22 +91,37 @@ public class DialogueCode : MonoBehaviour
         yesButton.SetActive(false);
         noButton.SetActive(false);
         inChoice = false;
+        End.SetActive(false);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(inDialogue == true)
+        if (inDialogue == true)
         {
             EnterDialogue();
-            if (inChoice == false && Input.GetKeyDown(KeyCode.E))
-            {
-                flamencoDialogue++;
-            }
             
-            Dialogue();
+            if (inDialogueFlamenco == true)
+            {
 
+                if (inChoice == false && Input.GetKeyDown(KeyCode.E))
+                {
+                    flamencoDialogue++;
+                }
+                DialogueFlamenco();
+
+            }
+            if (inDialogueMariachi == true)
+            {
+
+                if (inChoice == false && Input.GetKeyDown(KeyCode.E))
+                {
+                    musicianDialogue++;
+                }
+                DialogueMariachi();
+
+            }
         }
 
 
@@ -84,13 +129,19 @@ public class DialogueCode : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((canQuest == true || canQuestP2 == true) && other.tag == "Quest 1" && doneFlamenco == false)
+        if ((canQuest == true || canQuestP2Flamenco == true) && other.tag == "Quest 1" && doneFlamenco == false)
         {
             inDialogue = true;
+            inDialogueFlamenco = true;
+        }
+        if((canQuest == true || canQuestP2Mariachi == true) && other.tag == "Quest 2" && doneMariachi == false)
+        {
+            inDialogue = true;
+            inDialogueMariachi = true;
         }
     }
 
-    private void Dialogue() 
+    private void DialogueFlamenco() 
     { 
         switch (flamencoDialogue)
         {
@@ -114,6 +165,8 @@ public class DialogueCode : MonoBehaviour
                 break;
             case 6:
                 textElement.text = mLine7;
+                yesoption.text = yesFlamenco;
+                nooption.text = noFlamenco;
                 yesButton.SetActive(true);
                 noButton.SetActive(true);
                 inChoice = true;
@@ -135,6 +188,7 @@ public class DialogueCode : MonoBehaviour
             case 9:
                 flamencoDialogue++;
                 Canvas.GetComponent<MissionScreen>().flamencoPart2 = true;
+                canQuest = false;
                 ExitDialogue();
                 break;
             case 10:
@@ -151,18 +205,93 @@ public class DialogueCode : MonoBehaviour
                 doneFlamenco = true;
                 Canvas.GetComponent<MissionScreen>().flamencoPart3 = true;
                 break;
-            case 14:
+            case 14:  
+                canQuest = true;
+                canQuestP2Flamenco = false;
+                inDialogueFlamenco = false;
+                doneFlamenco = true;
                 ExitDialogue();
                 break;
             default:
                 break;
         }
 
+       
+
         
         //add part 2 of dialogue code, which is simply the lines of text, add multiple choice ability
 
     }
-
+    private void DialogueMariachi()
+    {
+        switch (musicianDialogue)
+        {
+            case 0:
+                textElement.text = fLine1;
+                break;
+            case 1:
+                textElement.text = fLine2;
+                break;
+            case 2:
+                textElement.text = fLine3;
+                break;
+            case 3:
+                textElement.text = fLine4;
+                break;
+            case 4:
+                textElement.text = fLine5;
+                break;
+            case 5:
+                textElement.text = fLine6;
+                break;
+            case 6:
+                textElement.text = fLine7;
+                yesButton.SetActive(true);
+                noButton.SetActive(true);
+                inChoice = true;
+                break;
+            case 7 when yes:
+                textElement.text = fLine8;
+                break;
+            case 7 when no:
+                textElement.text = fLine9;
+                break;
+            case 8 when yes:
+                textElement.text = fLine10;
+                break;
+            case 8 when no:
+                ExitDialogue();
+                musicianDialogue = 0;
+                canQuest = true;
+                break;
+            case 9:
+                musicianDialogue++;
+                Canvas.GetComponent<MissionScreen>().mariachiPart2 = true;
+                canQuest = false;
+            End.SetActive(true);
+                ExitDialogue();
+                break;
+            case 10:
+                textElement.text = fLine11;
+                break;
+            case 11:
+                textElement.text = fLine12;
+                break;
+            case 12:
+                textElement.text = fLine13;
+                break;
+            case 13:
+                textElement.text = fLine14;
+                doneFlamenco = true;
+                Canvas.GetComponent<MissionScreen>().mariachiPart3 = true;
+                break;
+            case 14:
+                ExitDialogue();
+                break;
+            default:
+                break;
+        }
+    }
     private void EnterDialogue()
     {
         playerLive.GetComponent<PlayerLiveControl>().canMove = false;
@@ -178,28 +307,53 @@ public class DialogueCode : MonoBehaviour
         textBox.SetActive(false);
         textBoxBorder.SetActive(false);
         inDialogue = false;
-        canQuest = false;
         yes = false;
         no = false;
     }
 
     public void ButtonYesFlamenco()
     {
+        if(inDialogueFlamenco == true)
+        {
         yes = true;
         flamencoDialogue++;
         yesButton.SetActive(false);
         noButton.SetActive(false);
         inChoice = false;
+        }
+
+        if(inDialogueMariachi == true)
+        {
+            yes = true;
+            musicianDialogue++;
+            yesButton.SetActive(false);
+            noButton.SetActive(false);
+            inChoice = false;
+        }
+       
         
     }
 
     public void ButtonNoFlamenco()
     {
+        if(inDialogueFlamenco)
+        {
         no = true;
         flamencoDialogue++;
         yesButton.SetActive(false);
         noButton.SetActive(false);
         inChoice = false;
+        }
+
+        if(inDialogueMariachi)
+        {
+            no = true;
+            musicianDialogue++;
+            yesButton.SetActive(false);
+            noButton.SetActive(false);
+            inChoice = false;
+        }
+     
 
     }
 
