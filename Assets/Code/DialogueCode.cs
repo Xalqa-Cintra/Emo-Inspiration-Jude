@@ -134,7 +134,7 @@ public class DialogueCode : MonoBehaviour
             inDialogue = true;
             inDialogueFlamenco = true;
         }
-        if((canQuest == true || canQuestP2Mariachi == true) && other.tag == "Quest 2" && doneMariachi == false)
+        if((canQuest == true || canQuestP2Mariachi == true) && (other.tag == "Quest 2" || other.tag == "MariachiEnd") && doneMariachi == false)
         {
             inDialogue = true;
             inDialogueMariachi = true;
