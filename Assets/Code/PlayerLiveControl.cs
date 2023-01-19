@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLiveControl : MonoBehaviour
 {
-    
+    public GameObject birdSpawner;
     public GameObject livingPlayer;
     public GameObject deadPlayer;
     public GameObject livingCam;
@@ -15,10 +15,12 @@ public class PlayerLiveControl : MonoBehaviour
 
     public float maxSpeed = 1f;
     public float rotationSpeed = 1f;
-    float camTimer;
+    float camTimer; // cooldown for switch
+    public float spawnTimer; // for bird
 
     public bool isAlive = false;
     public bool canMove;
+    public bool sitting;
 
 
     // Start is called before the first frame update
@@ -83,7 +85,11 @@ public class PlayerLiveControl : MonoBehaviour
            
 
         }
-
+        
+        if(sitting == true)
+        {
+            
+        }
         
     }
 
@@ -101,6 +107,18 @@ public class PlayerLiveControl : MonoBehaviour
         if (other.tag == "MariachiEnd")
         {
             GetComponent<DialogueCode>().canQuestP2Mariachi = true;
+        }
+
+        if(other.tag == "Bench" && Input.GetKey(KeyCode.E))
+        {
+           canMove = false;
+            deadPlayer.GetComponent<PlayerDeadControl>().canMove = false;
+            //play sit down anim
+            sitting = true;
+
+
+
+
         }
     }
 
