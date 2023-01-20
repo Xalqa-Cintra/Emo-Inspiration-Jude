@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BirdSpawn : MonoBehaviour
 {
-    
+    public GameObject birdObject;
     public GameObject playerLive;
     public GameObject playerDead;
     public bool spawnbird;
     public bool spawnedBird;
-
+    public float spawntimer;
 
 
     // Start is called before the first frame update
@@ -21,7 +21,10 @@ public class BirdSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(spawnTimer < 0)
+        {
+             Instantiate(birdObject, transform.position, Quaternion.identity);
+        }
     }
 
 

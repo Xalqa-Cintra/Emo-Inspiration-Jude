@@ -113,6 +113,8 @@ public class PlayerLiveControl : MonoBehaviour
         if(other.tag == "DVD")
         {
             GetComponent<DialogueCode>().canQuestP2Flamenco = true;
+            Destroy(other.gameObject);
+            
         }
         if (other.tag == "MariachiEnd")
         {
@@ -125,12 +127,10 @@ public class PlayerLiveControl : MonoBehaviour
             deadPlayer.GetComponent<PlayerDeadControl>().canMove = false;
             //play sit down anim
             sitting = true;
-
-
-
-
         }
     }
+
+
 
    
     
