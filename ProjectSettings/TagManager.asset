@@ -12,6 +12,7 @@ TagManager:
   - DVD
   - MariachiEnd
   - Bench
+  - Bird
   layers:
   - Default
   - TransparentFX

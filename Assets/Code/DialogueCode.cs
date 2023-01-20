@@ -105,7 +105,7 @@ public class DialogueCode : MonoBehaviour
             if (inDialogueFlamenco == true)
             {
 
-                if (inChoice == false && Input.GetKeyDown(KeyCode.E))
+                if (inChoice == false && Input.GetKeyDown(KeyCode.Return))
                 {
                     flamencoDialogue++;
                 }
@@ -115,7 +115,7 @@ public class DialogueCode : MonoBehaviour
             if (inDialogueMariachi == true)
             {
 
-                if (inChoice == false && Input.GetKeyDown(KeyCode.E))
+                if (inChoice == false && Input.GetKeyDown(KeyCode.Return))
                 {
                     musicianDialogue++;
                 }

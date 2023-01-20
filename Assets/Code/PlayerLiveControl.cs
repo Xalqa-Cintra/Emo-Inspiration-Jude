@@ -20,6 +20,7 @@ public class PlayerLiveControl : MonoBehaviour
 
     public bool isAlive = false;
     public bool canMove;
+    public bool canSit;
     public bool sitting;
 
 
@@ -95,10 +96,14 @@ public class PlayerLiveControl : MonoBehaviour
            
 
         }
+        if(canSit == true && Input.GetKeyDown(KeyCode.Return))
+        {
+            Sit();
+        }
         
         if(sitting == true)
         {
-            
+            birdSpawner.GetComponent<BirdSpawn>().spawnTimer = 5f;
         }
         
     }
@@ -121,15 +126,21 @@ public class PlayerLiveControl : MonoBehaviour
             GetComponent<DialogueCode>().canQuestP2Mariachi = true;
         }
 
-        if(other.tag == "Bench" && Input.GetKey(KeyCode.E))
+        if(other.tag == "Bench")
         {
-           canMove = false;
-            deadPlayer.GetComponent<PlayerDeadControl>().canMove = false;
-            //play sit down anim
-            sitting = true;
+            canSit = true;
+
+            
         }
     }
 
+    private void Sit()
+    {
+        canMove = false;
+        deadPlayer.GetComponent<PlayerDeadControl>().canMove = false;
+        //play sit down anim
+        sitting = true;
+    }
 
 
    
