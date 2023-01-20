@@ -246,6 +246,8 @@ public class DialogueCode : MonoBehaviour
                 break;
             case 6:
                 textElement.text = fLine7;
+                yesoption.text = yesMusician;
+                nooption.text = noMusician;
                 yesButton.SetActive(true);
                 noButton.SetActive(true);
                 inChoice = true;

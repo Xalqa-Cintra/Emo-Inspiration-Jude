@@ -65,6 +65,16 @@ public class PlayerLiveControl : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
 
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                maxSpeed = 9;
+            }else if(Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                maxSpeed = 4;
+
+                
+            }
+
         }
 
         if (isAlive == false && canMove == true)
