@@ -13,6 +13,7 @@ TagManager:
   - MariachiEnd
   - Bench
   - Bird
+  - Descent
   layers:
   - Default
   - TransparentFX

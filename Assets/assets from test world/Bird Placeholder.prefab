@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 192147539167229399}
   - component: {fileID: 192147539167229396}
   - component: {fileID: 192147539167229397}
-  - component: {fileID: 192147539167229393}
   m_Layer: 0
   m_Name: Bird Placeholder
   m_TagString: Bird
@@ -96,23 +95,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &192147539167229393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192147539167229402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c4f8d163e249342a8614297a886411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  descentPoint: {fileID: 0}
-  birdSpawn: {fileID: 0}
-  mission1: {fileID: 0}
-  mission2: {fileID: 0}
-  birdTimer: 0
-  flySpeed: 0

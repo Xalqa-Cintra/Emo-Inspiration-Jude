@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLiveControl : MonoBehaviour
 {
-    public GameObject birdSpawner;
+
     public GameObject livingPlayer;
     public GameObject deadPlayer;
     public GameObject livingCam;
@@ -17,6 +17,7 @@ public class PlayerLiveControl : MonoBehaviour
     public float rotationSpeed = 1f;
     float camTimer; // cooldown for switch
     public float spawnTimer; // for bird
+
 
     public bool isAlive = false;
     public bool canMove;
@@ -98,14 +99,20 @@ public class PlayerLiveControl : MonoBehaviour
         }
         if(canSit == true && Input.GetKeyDown(KeyCode.Return))
         {
-            Sit();
+            canMove = false;
+            deadPlayer.GetComponent<PlayerDeadControl>().canMove = false;
+            //play sit down anim
+            sitting = true;
         }
         
-        if(sitting == true)
+        if(sitting == true && Input.GetKeyDown(KeyCode.E))
         {
-            birdSpawner.GetComponent<BirdSpawn>().spawnTimer = 5f;
+            canMove = true;
+            deadPlayer.GetComponent<PlayerDeadControl>().canMove = true;
+            //play stand up anim
+            sitting = false;
         }
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -134,17 +141,19 @@ public class PlayerLiveControl : MonoBehaviour
         }
     }
 
-    private void Sit()
+    private void OnTriggerExit(Collider other)
     {
-        canMove = false;
-        deadPlayer.GetComponent<PlayerDeadControl>().canMove = false;
-        //play sit down anim
-        sitting = true;
+        if(other.tag == "Bench")
+        {
+            canSit = false;
+        }
     }
 
 
-   
-    
+
+
+
+
 
 
     // enter hitbox, if bool is true, setactive idle cutscene, set timer for idle cutscene slides, then start  a timer which is shown, then enter hitbox and press key, enter new cutscene
