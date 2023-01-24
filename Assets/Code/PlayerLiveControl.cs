@@ -10,6 +10,7 @@ public class PlayerLiveControl : MonoBehaviour
     public GameObject livingCam;
     public GameObject deadCam;
     public Rigidbody livingRigidbody;
+    
 
     public GameObject FollowingNPC;
 

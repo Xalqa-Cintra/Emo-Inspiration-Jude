@@ -26,6 +26,7 @@ public class DialogueCode : MonoBehaviour
     [Header("GameObjects")]
     public GameObject playerLive;
     public GameObject playerDead;
+    public GameObject bird;
     public GameObject textBox;
     public GameObject textBoxBorder;
     public GameObject yesButton;
@@ -124,6 +125,12 @@ public class DialogueCode : MonoBehaviour
             }
         }
 
+        if(doneFlamenco == true)
+        {
+            bird.GetComponent<BirdMoveCode>().moveToMari = true;
+            bird.GetComponent<BirdMoveCode>().moveToFlam = false;
+        }
+
 
     }
 
@@ -210,6 +217,7 @@ public class DialogueCode : MonoBehaviour
                 canQuestP2Flamenco = false;
                 inDialogueFlamenco = false;
                 doneFlamenco = true;
+
                 ExitDialogue();
                 break;
             default:
@@ -219,7 +227,7 @@ public class DialogueCode : MonoBehaviour
        
 
         
-        //add part 2 of dialogue code, which is simply the lines of text, add multiple choice ability
+
 
     }
     private void DialogueMariachi()
@@ -270,7 +278,7 @@ public class DialogueCode : MonoBehaviour
                 musicianDialogue++;
                 Canvas.GetComponent<MissionScreen>().mariachiPart2 = true;
                 canQuest = false;
-            End.SetActive(true);
+                End.SetActive(true);
                 ExitDialogue();
                 break;
             case 10:

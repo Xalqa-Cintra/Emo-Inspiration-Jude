@@ -12,7 +12,6 @@ public class BirdMoveCode : MonoBehaviour
     public Transform mission1;
     public Transform mission2;
     public Transform mariachiEnd;
-
     public GameObject player;
    
 
@@ -20,6 +19,10 @@ public class BirdMoveCode : MonoBehaviour
     public float birdDespawnTimer;
     public float birdSpawnDelay;
 
+
+    public bool moveToFlam;
+    public bool moveToMari;
+    
     public bool descended;
     public bool atTarget;
     bool setTimer;
@@ -29,7 +32,8 @@ public class BirdMoveCode : MonoBehaviour
     void Start()
     {
         bird.position = birdSpawn.position;
-        
+        moveToFlam = true;
+        moveToMari = false;
     }
 
     // Update is called once per frame
@@ -50,6 +54,7 @@ public class BirdMoveCode : MonoBehaviour
             if (birdSpawnDelay < 0 && descended == false)
             {
                 bird.position = Vector3.MoveTowards(bird.position, birdDescent.position, birdMoveSpeed);
+                
             }
             if (birdSpawnDelay < 0 && descended == true)
             {
@@ -57,11 +62,11 @@ public class BirdMoveCode : MonoBehaviour
             }
         }
 
-        if (player.GetComponent<DialogueCode>().doneFlamenco == false);
+        if (moveToFlam == true && moveToMari == false)
         {
             birdTarget.position = mission1.position;
         }
-        if (player.GetComponent<DialogueCode>().doneFlamenco == true);
+        if (moveToMari == true && moveToFlam == false)
         {
             birdTarget.position = mission2.position;
         }
