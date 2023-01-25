@@ -23,7 +23,8 @@ public class DialogueCode : MonoBehaviour
     public bool doneFlamenco;
     public bool doneMariachi;
     public float timerTime;
-    public  float timerStart;
+    public bool timerStart;
+    public bool timerCountDownStart;
 
     [Header("GameObjects")]
     public GameObject playerLive;
@@ -134,6 +135,25 @@ public class DialogueCode : MonoBehaviour
         {
             bird.GetComponent<BirdMoveCode>().moveToMari = true;
             bird.GetComponent<BirdMoveCode>().moveToFlam = false;
+        }
+
+         if(timerStart == true )
+        {
+            if(timerCountDownStart == false)
+            {
+                timerTime = 25f;
+                timerCountDownStart = true;
+            } 
+            timerBox.SetActive(true);
+            timerText.text = "Time:" + timerTime;
+            timerTime = timerTime - Time.deltaTime;
+
+            if(timerTime < 0)
+            {
+                timerBox.SetActive(false);
+                timerStart = false;
+                
+            }
         }
 
 
@@ -284,6 +304,7 @@ public class DialogueCode : MonoBehaviour
                 Canvas.GetComponent<MissionScreen>().mariachiPart2 = true;
                 canQuest = false;
                 End.SetActive(true);
+                timerStart = true;
                 ExitDialogue();
                 break;
             case 10:
@@ -296,7 +317,6 @@ public class DialogueCode : MonoBehaviour
                 textElement.text = fLine13;
                 break;
             case 13:
-                timerStart = true;
                 textElement.text = fLine14;
                 doneFlamenco = true;
                 Canvas.GetComponent<MissionScreen>().mariachiPart3 = true;
@@ -369,15 +389,7 @@ public class DialogueCode : MonoBehaviour
             noButton.SetActive(false);
             inChoice = false;
         }
-
-        if(timerStart = true;)
-        {
-            timerTime = 25f;
-            timerBox.SetActive(true);
-            timerText.text = "Time:" + timerTime;
-        }
      
-
     }
 
 }
