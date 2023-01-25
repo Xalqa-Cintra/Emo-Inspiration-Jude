@@ -18,12 +18,14 @@ public class PlayerLiveControl : MonoBehaviour
     public float rotationSpeed = 1f;
     float camTimer; // cooldown for switch
     public float spawnTimer; // for bird
+    public float sitTimer;
 
 
     public bool isAlive = false;
     public bool canMove;
     public bool canSit;
     public bool sitting;
+    public bool timerSet;
 
 
     // Start is called before the first frame update
@@ -39,6 +41,7 @@ public class PlayerLiveControl : MonoBehaviour
     void Update()
     {
         camTimer = camTimer - Time.deltaTime;   
+        sitTimer = sitTimer - Time.deltaTime;
 
         if (isAlive == true && canMove == true)
         {
@@ -98,15 +101,17 @@ public class PlayerLiveControl : MonoBehaviour
            
 
         }
-        if(canSit == true && Input.GetKeyDown(KeyCode.Return))
+        if(canSit == true && Input.GetKeyDown(KeyCode.Return) && sitting == false)
         {
             canMove = false;
             deadPlayer.GetComponent<PlayerDeadControl>().canMove = false;
             //play sit down anim
             sitting = true;
+            sitTimer = 2;
+
         }
         
-        if(sitting == true && Input.GetKeyDown(KeyCode.E))
+        if(sitting == true && sitTimer < 0 && Input.GetKeyDown(KeyCode.Return))
         {
             canMove = true;
             deadPlayer.GetComponent<PlayerDeadControl>().canMove = true;
