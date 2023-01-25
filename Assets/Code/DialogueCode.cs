@@ -22,6 +22,8 @@ public class DialogueCode : MonoBehaviour
     public bool inDialogueMariachi;
     public bool doneFlamenco;
     public bool doneMariachi;
+    public float timerTime;
+    public  float timerStart;
 
     [Header("GameObjects")]
     public GameObject playerLive;
@@ -33,6 +35,7 @@ public class DialogueCode : MonoBehaviour
     public GameObject noButton;
     public GameObject Canvas;
     public GameObject End;
+    public GameObject timerBox;
 
     [Header("Flamenco Text")] // got mixed up while codin
     public string mLine1 = "Hi there!";
@@ -76,6 +79,7 @@ public class DialogueCode : MonoBehaviour
     public Text nooption;
 
     public Text textElement;
+    public Text timerText;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +97,7 @@ public class DialogueCode : MonoBehaviour
         noButton.SetActive(false);
         inChoice = false;
         End.SetActive(false);
+        timerBox.SetActive(false);
 
     }
 
@@ -291,6 +296,7 @@ public class DialogueCode : MonoBehaviour
                 textElement.text = fLine13;
                 break;
             case 13:
+                timerStart = true;
                 textElement.text = fLine14;
                 doneFlamenco = true;
                 Canvas.GetComponent<MissionScreen>().mariachiPart3 = true;
@@ -362,6 +368,13 @@ public class DialogueCode : MonoBehaviour
             yesButton.SetActive(false);
             noButton.SetActive(false);
             inChoice = false;
+        }
+
+        if(timerStart = true;)
+        {
+            timerTime = 25f;
+            timerBox.SetActive(true);
+            timerText.text = "Time:" + timerTime;
         }
      
 
