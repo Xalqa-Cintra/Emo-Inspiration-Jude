@@ -7,12 +7,18 @@ public class CamAreaCode : MonoBehaviour
     public Transform docks;
     public Transform bridge;
     public Transform lowerJaw;
+    public Transform grave;
     public Transform camera;
 
     public bool inDock;
     public bool inBridge;
     public bool inLowerJaw; 
-    //public new Vector3(0, 0, 0);
+    public bool inGrave;
+
+    Vector3 camBridge = new Vector3(42f, 90f, 0f);
+    Vector3 camDock = new Vector3(42f, 0f, 0f);
+    Vector3 camLower = new Vector3(42f, 180f, 0f);
+
 
     //make 2nd vector3 saving start rotation
     // need diff vector3's for diff areas
@@ -29,14 +35,23 @@ public class CamAreaCode : MonoBehaviour
         if(inDock == true)
         {
             camera.position = docks.position;
+            camera.transform.rotation = Quaternion.Euler(camDock);
         }
         if(inBridge == true)
         {
             camera.position = bridge.position;
+            camera.transform.rotation = Quaternion.Euler(camBridge);
+            
         }
         if(inLowerJaw == true)
         {
             camera.position = lowerJaw.position;
+            camera.transform.rotation = Quaternion.Euler(camLower);
+        }
+        if(inGrave == true)
+        {
+            camera.position = grave.position;
+            camera.transform.rotation = Quaternion.Euler(camLower);
         }
     }
 
@@ -57,6 +72,10 @@ public class CamAreaCode : MonoBehaviour
             inLowerJaw = true;
 
         }
+        if(other.tag == "GraveCam")
+        {
+            inGrave = true;
+        }
     }
     private void OnTriggerExit(Collider other) 
     {
@@ -73,7 +92,11 @@ public class CamAreaCode : MonoBehaviour
         if(other.tag == "LowerJawCam")
         {
             inLowerJaw = false;
-            //camera.transformation.rotation = Vector3
+            
+        }
+        if(other.tag == "GraveCam")
+        {
+            inGrave = false;
         }
     }
 }

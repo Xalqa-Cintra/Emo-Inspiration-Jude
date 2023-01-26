@@ -19,6 +19,7 @@ public class MissionScreen : MonoBehaviour
     public GameObject returnButton;
     public GameObject closePhone;
     public GameObject HUD;
+    public GameObject photo;
 
     [Header("Errand Tab")]
     public GameObject errandUI;
@@ -47,12 +48,19 @@ public class MissionScreen : MonoBehaviour
     public bool mariachiPart2;
     public bool mariachiPart3;
 
+    [Header ("Materials for photos")]
+    public Material photoBull;
+    public Material photoFlamenco;
+    public Material photoElders;
+    public Material photoMariachi;
+
     
 
     Text textElement;
 
     private void Start() 
     {
+        photo.SetActive(false);
         missionUI.SetActive(false);
         errandUI.SetActive(false);
         returnButton.SetActive(false);
@@ -84,12 +92,13 @@ public class MissionScreen : MonoBehaviour
         errandUI.SetActive(true);
         returnButton.SetActive(true);
         errandTextBox.SetActive(true);
+        
     }
     public void OpenNote1() 
     {
         //bullfighter
         textElement.text = errand1Text;
-        //if(missioncheckbool=true){settexttothis}
+        
 
     }
     public void OpenNote2() 
@@ -106,6 +115,8 @@ public class MissionScreen : MonoBehaviour
         if(flamencoPart2 == true && flamencoPart3 == true)
         {
            textElement.text = errand2p3Text; 
+           photo.SetActive(true);
+           //set photo material to photo
         }
         
 
@@ -137,6 +148,8 @@ public class MissionScreen : MonoBehaviour
         if (mariachiPart2 == true && mariachiPart3 == true)
         {
             textElement.text = errand5p3Text;
+            photo.SetActive(true);
+            //set photo material to photo
         }
 
     }
@@ -146,6 +159,7 @@ public class MissionScreen : MonoBehaviour
         errandUI.SetActive(false);
         missionUI.SetActive(true);
         errandTextBox.SetActive(false);
+        photo.SetActive(false);
     }
 
 }

@@ -53,6 +53,7 @@ public class DialogueCode : MonoBehaviour
     public string mLine12 = "Thank you so much Dude, i've been looking for this for ages.";
     public string mLine13= "Well. Now that thats sorted out, may i have this dance? The DVD has the dance we were taught on it, so you can watch that before we dance.";
     public string mLine14 = "";
+    public string[] mLines;
 
     [Header("Mariachi Text")] // got mixed up while codin
     public string fLine1;
@@ -145,7 +146,7 @@ public class DialogueCode : MonoBehaviour
                 timerCountDownStart = true;
             } 
             timerBox.SetActive(true);
-            timerText.text = "Time:" + timerTime;
+            timerText.text = "Time:" + timerTime.ToString("0.00");
             timerTime = timerTime - Time.deltaTime;
 
             if(timerTime < 0)
@@ -248,13 +249,8 @@ public class DialogueCode : MonoBehaviour
             default:
                 break;
         }
-
-       
-
-        
-
-
     }
+
     private void DialogueMariachi()
     {
         switch (musicianDialogue)
