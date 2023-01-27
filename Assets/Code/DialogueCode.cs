@@ -39,20 +39,6 @@ public class DialogueCode : MonoBehaviour
     public GameObject timerBox;
 
     [Header("Flamenco Text")] // got mixed up while codin
-    public string mLine1 = "Hi there!";
-    public string mLine2 = "Can you help me?";
-    public string mLine3 = "I seem to have misplaced my dvd, it has my most precious memory";
-    public string mLine4 = "If you find it, i would be so grateful";
-    public string mLine5 = "Wait a minute. You went to the same flamenco college as me. Sm";
-    public string mLine6 = "Well once you help me find this dvd, i'd love to have a dance with you";
-    public string mLine7 = "Is that alright?";
-    public string mLine8 = "Perfect!";
-    public string mLine9 = "Aww. Maybe next time, see ya later then!";
-    public string mLine10 = "Thank you, lets hurry up and find that dvd!";
-    public string mLine11 = "Yay. You found it! My DVD.";
-    public string mLine12 = "Thank you so much Dude, i've been looking for this for ages.";
-    public string mLine13= "Well. Now that thats sorted out, may i have this dance? The DVD has the dance we were taught on it, so you can watch that before we dance.";
-    public string mLine14 = "";
     public string[] mLines;
 
     [Header("Mariachi Text")] // got mixed up while codin
@@ -70,6 +56,7 @@ public class DialogueCode : MonoBehaviour
     public string fLine12;
     public string fLine13;
     public string fLine14;
+    public string[] fLines;
 
     [Header("Yes/No text options")]
     public string yesFlamenco;
@@ -179,25 +166,25 @@ public class DialogueCode : MonoBehaviour
         switch (flamencoDialogue)
         {
             case 0:
-                textElement.text = mLine1;
+                textElement.text = mLines[0];
                 break;
             case 1:
-                textElement.text = mLine2;
+                textElement.text = mLines[1];
                 break;
             case 2:
-                textElement.text = mLine3;
+                textElement.text = mLines[2];
                 break;
             case 3:
-                textElement.text = mLine4;
+                textElement.text = mLines[3];
                 break;
             case 4:
-                textElement.text = mLine5;
+                textElement.text = mLines[4];
                 break;
             case 5:
-                textElement.text = mLine6;
+                textElement.text = mLines[5];
                 break;
             case 6:
-                textElement.text = mLine7;
+                textElement.text = mLines[6];
                 yesoption.text = yesFlamenco;
                 nooption.text = noFlamenco;
                 yesButton.SetActive(true);
@@ -205,13 +192,13 @@ public class DialogueCode : MonoBehaviour
                 inChoice = true;
                 break;
             case 7 when yes:
-                textElement.text = mLine8;
+                textElement.text = mLines[7];
                 break;
             case 7 when no:
-                textElement.text = mLine9;
+                textElement.text = mLines[8];
                 break;
             case 8 when yes:
-                textElement.text = mLine10;
+                textElement.text = mLines[9];
                 break;
             case 8 when no:
                 ExitDialogue();
@@ -225,16 +212,16 @@ public class DialogueCode : MonoBehaviour
                 ExitDialogue();
                 break;
             case 10:
-                textElement.text = mLine11;
+                textElement.text = mLines[10];
                 break;
             case 11:
-                textElement.text = mLine12;
+                textElement.text = mLines[11];
                 break;
             case 12:
-                textElement.text = mLine13;
+                textElement.text = mLines[12];
                 break;
             case 13:
-                textElement.text = mLine14;
+                textElement.text = mLines[13];
                 doneFlamenco = true;
                 Canvas.GetComponent<MissionScreen>().flamencoPart3 = true;
                 break;

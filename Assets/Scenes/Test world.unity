@@ -5249,7 +5249,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.83790237, b: 0.6745283, a: 1}
-  m_Intensity: 0.62
+  m_Intensity: 1.14
   m_Range: 178.65
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -11556,38 +11556,22 @@ MonoBehaviour:
   Canvas: {fileID: 322070573}
   End: {fileID: 904580260}
   timerBox: {fileID: 399985946}
-  mLine1: Hi there!
-  mLine2: Can you help me?
-  mLine3: I seem to have misplaced my dvd, it has my most precious memory
-  mLine4: If you find it, i would be so grateful
-  mLine5: Wait a minute. You went to the same flamenco college as me. Small world
-    huh?
-  mLine6: Well once you help me find this dvd, i'd love to have a dance with you
-  mLine7: Is that alright?
-  mLine8: Perfect!
-  mLine9: Aww. Maybe next time, see ya later then!
-  mLine10: Thank you, lets hurry up and find that dvd!
-  mLine11: Yay. You found it! My DVD.
-  mLine12: Thank you so much Dude, i've been looking for this for ages.
-  mLine13: Well. Now that thats sorted out, may i have this dance? The DVD has the
-    dance we were taught on it, so you can watch that before we dance.
-  mLine14: Don't forget, the crowd moves for spectacles
   mLines:
   - Hi there!
   - Can you help me?
   - I seem to have misplaced my dvd, it has my most precious memory
-  - If you find it, i would be so grateful
+  - If you find it, i would be so grateful.
   - Wait a minute. You went to the same flamenco college as me. Small world huh?
   - Well once you help me find this dvd, i'd love to have a dance with you
   - Is that alright?
   - Perfect!
   - Aww. Maybe next time, see ya later then!
   - Thank you, lets hurry up and find that dvd!
-  - Yay. You found it! My DVD.
-  - Thank you so much Dude, i've been looking for this for ages.
-  - Well. Now that thats sorted out, may i have this dance? The DVD has the dance
-    we were taught on it, so you can watch that before we dance.
-  - Don't forget, the crowd moves for spectacles
+  - YAY. You found it! My DVD.
+  - Thank you so much Dude, i've been looking for ages.
+  - Well. Now that thats sorted out, may I have this dance? My DVD has the dance
+    we were taught on it, so you can watch that before we give it a go.
+  - Don't forget, the crowd moves for spectacles.
   fLine1: Oh, its the young
   fLine2: 2
   fLine3: 3
@@ -11602,6 +11586,22 @@ MonoBehaviour:
   fLine12: 12
   fLine13: 13
   fLine14: 14
+  fLines:
+  - Oh, it's the young flamenco dancer that's been helping everyone.
+  - Welcome to this humble theatre run by your's truly.
+  - 'You know, you remind me of a certain man I used to work with. He was a member
+    of a mariachi band, he used to travel all over the world '
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   yesFlamenco: Sure, let's find your dvd
   noFlamenco: I'm sorry, I'm busy right now
   yesMusician: aye
@@ -12547,7 +12547,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.5, b: 0, a: 1}
-  m_Intensity: 0.62
+  m_Intensity: 1.14
   m_Range: 178.65
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
