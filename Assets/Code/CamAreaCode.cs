@@ -28,17 +28,16 @@ public class CamAreaCode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        inPlaza = false;
+        inDock = false;
+        inBridge = false;
+        inLowerJaw = false;
+        inGrave = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-         if(inPlaza == true)
-        {
-            camera.position = plaza.position;
-            camera.transform.rotation = Quaternion.Euler(camDock);
-        }
         if(inDock == true)
         {
             camera.position = docks.position;
@@ -59,6 +58,11 @@ public class CamAreaCode : MonoBehaviour
         {
             camera.position = grave.position;
             camera.transform.rotation = Quaternion.Euler(camLower);
+        }
+        if(inPlaza == true)
+        {
+            camera.position = plaza.position;
+            camera.transform.rotation = Quaternion.Euler(camDock);
         }
     }
 
