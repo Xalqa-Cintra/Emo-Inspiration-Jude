@@ -30,7 +30,6 @@ public class MissionScreen : MonoBehaviour
     public string errand3Text = ("Go fix the bridge");
     public string errand4Text = ("Go help the elderly");
     
-
     [Header ("Flamenco phases")]
     public string errand2Text = ("Go help the Flamenco dancer");
     public string errand2p2Text = ("");
@@ -41,12 +40,16 @@ public class MissionScreen : MonoBehaviour
     public string errand5p2Text;
     public string errand5p3Text;
 
-
     [Header ("Variables")]
     public bool flamencoPart2;
     public bool flamencoPart3;
     public bool mariachiPart2;
     public bool mariachiPart3;
+    public bool note1Open;
+    public bool note2Open;
+    public bool note3Open;
+    public bool note4Open;
+    public bool note5Open;
 
     [Header ("Materials for photos")]
     public Material photoBull;
@@ -54,7 +57,12 @@ public class MissionScreen : MonoBehaviour
     public Material photoElders;
     public Material photoMariachi;
 
-    
+    [Header ("Audio")]
+    public AudioClip bull;
+    public AudioClip flam;
+    public AudioClip elder;
+    public AudioClip Music;
+    public AudioSource photoButton;
 
     Text textElement;
 
@@ -65,19 +73,13 @@ public class MissionScreen : MonoBehaviour
         errandUI.SetActive(false);
         returnButton.SetActive(false);
         textElement = errandTextBox.GetComponent<Text>();
-
     }
-    
-
     public void OpenMenu()
     {
         openPhone.SetActive(false);
         missionUI.SetActive(true);
         HUD.SetActive(false);
-
-
     }
-    
     public void CloseMenu()
     {
         missionUI.SetActive(false);
@@ -85,25 +87,21 @@ public class MissionScreen : MonoBehaviour
         errandUI.SetActive(false);
         HUD.SetActive(true);
     }
-
     public void OpenNote()
     {
         missionUI.SetActive(false);
         errandUI.SetActive(true);
         returnButton.SetActive(true);
-        errandTextBox.SetActive(true);
-        
+        errandTextBox.SetActive(true); 
     }
     public void OpenNote1() 
-    {
-        //bullfighter
+    {//bullfighter
         textElement.text = errand1Text;
-        
-
+        photo.SetActive(true);
+        note1Open = true;
     }
     public void OpenNote2() 
-    {
-        //flamenco
+    {//flamenco
         if(flamencoPart2 == false && flamencoPart3 == false)
         {
            textElement.text = errand2Text; 
@@ -118,25 +116,23 @@ public class MissionScreen : MonoBehaviour
            photo.SetActive(true);
            //set photo material to photo
         }
-        
-
+        note2Open = true;
     }
     public void OpenNote3() 
-    {
-        //bridge
+    {//bridge
         textElement.text = errand3Text;
         //if(missioncheckbool=true){settexttothis}
-
+        photo.SetActive(true);
+        note3Open = true;
     }
     public void OpenNote4() 
-    {
-        //elders
+    {//elders
         textElement.text = errand4Text;
         //if(missioncheckbool=true){settexttothis}
-
+        note4Open = true;
     }
     public void OpenNote5()
-    { 
+    { //Mariachi
         if (mariachiPart2 == false && mariachiPart3 == false)
         {
             textElement.text = errand5Text;
@@ -150,16 +146,43 @@ public class MissionScreen : MonoBehaviour
             textElement.text = errand5p3Text;
             photo.SetActive(true);
             //set photo material to photo
+            note5Open = true;
         }
-
     }
-
     public void returnScreen()
     {
         errandUI.SetActive(false);
         missionUI.SetActive(true);
         errandTextBox.SetActive(false);
         photo.SetActive(false);
+        note1Open = false;
+        note2Open = false;
+        note3Open = false;
+        note4Open = false;
+        note5Open = false;
+    }   
+    public void MusicButton()
+    {
+        if(note1Open == true)
+        {
+            photoButton.clip = bull;   
+            photoButton.Play();
+        }
+        if(note2Open == true)
+        {
+            photoButton.clip = flam;
+            photoButton.Play();
+        }
+        if(note3Open == true)
+        {
+            photoButton.clip = elder;
+            photoButton.Play();
+        }
+        if(note5Open == true)
+        {
+            photoButton.clip = Music;
+            photoButton.Play();
+        }
     }
 
 }

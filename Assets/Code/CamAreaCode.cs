@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class CamAreaCode : MonoBehaviour
 {
+    public Transform plaza;
     public Transform docks;
     public Transform bridge;
     public Transform lowerJaw;
     public Transform grave;
     public Transform camera;
 
+    public bool inPlaza;
     public bool inDock;
     public bool inBridge;
     public bool inLowerJaw; 
@@ -32,6 +34,11 @@ public class CamAreaCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         if(inPlaza == true)
+        {
+            camera.position = plaza.position;
+            camera.transform.rotation = Quaternion.Euler(camDock);
+        }
         if(inDock == true)
         {
             camera.position = docks.position;
@@ -60,7 +67,7 @@ public class CamAreaCode : MonoBehaviour
         if(other.tag == "Dockcam")
         {
             inDock = true;
-            //rotate camera in these to face the subject
+            
         }
         if(other.tag == "BridgeCam")
         {
@@ -76,13 +83,17 @@ public class CamAreaCode : MonoBehaviour
         {
             inGrave = true;
         }
+        if(other.tag == "PlazaCam")
+        {
+            inPlaza = true;
+        }
     }
     private void OnTriggerExit(Collider other) 
     {
         if(other.tag == "DockCam")
         {
             inDock = false;
-            //rotate camera in these to face the subject
+            
         }
         if(other.tag == "BridgeCam")
         {
@@ -97,6 +108,10 @@ public class CamAreaCode : MonoBehaviour
         if(other.tag == "GraveCam")
         {
             inGrave = false;
+        }
+        if(other.tag == "PlazaCam")
+        {
+            inPlaza = false;
         }
     }
 }

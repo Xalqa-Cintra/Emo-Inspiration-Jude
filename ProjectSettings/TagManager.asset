@@ -18,6 +18,7 @@ TagManager:
   - BridgeCam
   - LowerJawCam
   - GraveCam
+  - PlazaCam
   layers:
   - Default
   - TransparentFX
