@@ -18,7 +18,6 @@ public class MissionScreen : MonoBehaviour
     public GameObject note5;
     public GameObject returnButton;
     public GameObject closePhone;
-    public GameObject HUD;
     public GameObject photo;
 
     [Header("Errand Tab")]
@@ -78,14 +77,14 @@ public class MissionScreen : MonoBehaviour
     {
         openPhone.SetActive(false);
         missionUI.SetActive(true);
-        HUD.SetActive(false);
+
     }
     public void CloseMenu()
     {
         missionUI.SetActive(false);
         openPhone.SetActive(true);
         errandUI.SetActive(false);
-        HUD.SetActive(true);
+
     }
     public void OpenNote()
     {
@@ -122,13 +121,12 @@ public class MissionScreen : MonoBehaviour
     {//bridge
         textElement.text = errand3Text;
         //if(missioncheckbool=true){settexttothis}
-        photo.SetActive(true);
-        note3Open = true;
     }
     public void OpenNote4() 
     {//elders
         textElement.text = errand4Text;
         //if(missioncheckbool=true){settexttothis}
+        photo.SetActive(true);
         note4Open = true;
     }
     public void OpenNote5()
@@ -173,7 +171,7 @@ public class MissionScreen : MonoBehaviour
             photoButton.clip = flam;
             photoButton.Play();
         }
-        if(note3Open == true)
+        if(note4Open == true)
         {
             photoButton.clip = elder;
             photoButton.Play();
