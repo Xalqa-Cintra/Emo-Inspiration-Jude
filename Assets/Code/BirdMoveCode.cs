@@ -44,7 +44,7 @@ public class BirdMoveCode : MonoBehaviour
            
             if(setTimer == false)
             {
-                birdSpawnDelay = 2f;
+                birdSpawnDelay = 5f;
                 setTimer = true;
             }
 
