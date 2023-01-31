@@ -42,20 +42,6 @@ public class DialogueCode : MonoBehaviour
     public string[] mLines;
 
     [Header("Mariachi Text")] // got mixed up while codin
-    public string fLine1;
-    public string fLine2;
-    public string fLine3;
-    public string fLine4;
-    public string fLine5;
-    public string fLine6;
-    public string fLine7;
-    public string fLine8;
-    public string fLine9;
-    public string fLine10;
-    public string fLine11;
-    public string fLine12;
-    public string fLine13;
-    public string fLine14;
     public string[] fLines;
 
     [Header("Yes/No text options")]
@@ -243,44 +229,42 @@ public class DialogueCode : MonoBehaviour
         switch (musicianDialogue)
         {
             case 0:
-                textElement.text = fLine1;
+                textElement.text = fLines[0];
                 break;
             case 1:
-                textElement.text = fLine2;
+                textElement.text = fLines[1];
                 break;
             case 2:
-                textElement.text = fLine3;
+                textElement.text = fLines[2];
                 break;
             case 3:
-                textElement.text = fLine4;
+                textElement.text = fLines[3];
                 break;
             case 4:
-                textElement.text = fLine5;
+                textElement.text = fLines[4];
                 break;
             case 5:
-                textElement.text = fLine6;
-                break;
-            case 6:
-                textElement.text = fLine7;
+                textElement.text = fLines[5];
                 yesoption.text = yesMusician;
                 nooption.text = noMusician;
                 yesButton.SetActive(true);
                 noButton.SetActive(true);
                 inChoice = true;
                 break;
+            case 6 when yes:
+                textElement.text = fLines[6];
+                break;
+            case 6 when no:
+                textElement.text = fLines[7];
+                break;
             case 7 when yes:
-                textElement.text = fLine8;
+                textElement.text = fLines[8];
                 break;
             case 7 when no:
-                textElement.text = fLine9;
+                textElement.text = fLines[9];
                 break;
-            case 8 when yes:
-                textElement.text = fLine10;
-                break;
-            case 8 when no:
-                ExitDialogue();
-                musicianDialogue = 0;
-                canQuest = true;
+            case 8:
+                textElement.text = fLines[10];
                 break;
             case 9:
                 musicianDialogue++;
@@ -291,16 +275,16 @@ public class DialogueCode : MonoBehaviour
                 ExitDialogue();
                 break;
             case 10:
-                textElement.text = fLine11;
+                textElement.text = fLines[10];
                 break;
             case 11:
-                textElement.text = fLine12;
+                textElement.text = fLines[11];
                 break;
             case 12:
-                textElement.text = fLine13;
+                textElement.text = fLines[12];
                 break;
             case 13:
-                textElement.text = fLine14;
+                textElement.text = fLines[13];
                 doneFlamenco = true;
                 Canvas.GetComponent<MissionScreen>().mariachiPart3 = true;
                 break;

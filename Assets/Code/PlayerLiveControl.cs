@@ -73,10 +73,10 @@ public class PlayerLiveControl : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.LeftShift))
             {
-                maxSpeed = 9;
+                maxSpeed = 12;
             }else if(Input.GetKeyUp(KeyCode.LeftShift))
             {
-                maxSpeed = 4;
+                maxSpeed = 8;
 
                 
             }
