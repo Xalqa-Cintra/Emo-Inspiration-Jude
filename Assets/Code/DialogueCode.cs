@@ -37,6 +37,7 @@ public class DialogueCode : MonoBehaviour
     public GameObject Canvas;
     public GameObject End;
     public GameObject timerBox;
+    public GameObject mariachiQuestBox;
 
     [Header("Flamenco Text")] // got mixed up while codin
     public string[] mLines;
@@ -73,6 +74,7 @@ public class DialogueCode : MonoBehaviour
         inChoice = false;
         End.SetActive(false);
         timerBox.SetActive(false);
+        mariachiQuestBox.SetActive(false);
 
     }
 
@@ -216,7 +218,7 @@ public class DialogueCode : MonoBehaviour
                 canQuestP2Flamenco = false;
                 inDialogueFlamenco = false;
                 doneFlamenco = true;
-
+                mariachiQuestBox.SetActive(true);
                 ExitDialogue();
                 break;
             default:
