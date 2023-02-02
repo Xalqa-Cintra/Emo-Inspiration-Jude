@@ -122,13 +122,13 @@ public class MissionScreen : MonoBehaviour
     {//bridge
         textElement.text = errand3Text;
         //if(missioncheckbool=true){settexttothis}
-        photo.SetActive(true);
         note3Open = true;
     }
     public void OpenNote4() 
     {//elders
         textElement.text = errand4Text;
         //if(missioncheckbool=true){settexttothis}
+        photo.SetActive(true);
         note4Open = true;
     }
     public void OpenNote5()
@@ -173,7 +173,7 @@ public class MissionScreen : MonoBehaviour
             photoButton.clip = flam;
             photoButton.Play();
         }
-        if(note3Open == true)
+        if(note4Open == true)
         {
             photoButton.clip = elder;
             photoButton.Play();
