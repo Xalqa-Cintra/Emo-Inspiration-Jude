@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: a69714d832b8e4b4b9a5852cce3787f1
+guid: 14bf7b68177e66e4a92e66e9b251c0f2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Stand To Sit
+    second: Seated Idle
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Stand To Sit
+      name: Seated Idle
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 67
+      lastFrame: 136
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -10,8 +10,8 @@ public class PlayerLiveControl : MonoBehaviour
     public GameObject livingCam;
     public GameObject deadCam;
     public Rigidbody livingRigidbody;
-    
 
+    public Animator myAnim;
     public GameObject FollowingNPC;
 
     public float maxSpeed = 1f;
@@ -40,6 +40,8 @@ public class PlayerLiveControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         camTimer = camTimer - Time.deltaTime;   
         sitTimer = sitTimer - Time.deltaTime;
 
@@ -65,7 +67,9 @@ public class PlayerLiveControl : MonoBehaviour
 
             transform.Translate(movementDirection * maxSpeed * Time.deltaTime, Space.World);
 
-            if(movementDirection != Vector3.zero)
+            myAnim.SetFloat("Speed", livingRigidbody.velocity.magnitude);
+
+            if (movementDirection != Vector3.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
@@ -74,13 +78,13 @@ public class PlayerLiveControl : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.LeftShift))
             {
                 maxSpeed = 12;
+                
             }else if(Input.GetKeyUp(KeyCode.LeftShift))
             {
                 maxSpeed = 8;
 
                 
             }
-
         }
 
         if (isAlive == false && canMove == true)
@@ -96,10 +100,6 @@ public class PlayerLiveControl : MonoBehaviour
 
                 deadPlayer.GetComponent<PlayerDeadControl>().isDead = false;
             }
-            
-
-           
-
         }
         if(canSit == true && Input.GetKeyDown(KeyCode.Return) && sitting == false)
         {
@@ -108,15 +108,17 @@ public class PlayerLiveControl : MonoBehaviour
             //play sit down anim
             sitting = true;
             sitTimer = 2;
-
+ 
         }
-        
-        if(sitting == true && sitTimer < 0 && Input.GetKeyDown(KeyCode.Return))
+        myAnim.SetBool("Sitting", sitting);
+
+        if (sitting == true && sitTimer < 0 && Input.GetKeyDown(KeyCode.Return))
         {
             canMove = true;
             deadPlayer.GetComponent<PlayerDeadControl>().canMove = true;
             //play stand up anim
             sitting = false;
+
         }
 
     }

@@ -51,11 +51,12 @@ public class MissionScreen : MonoBehaviour
     public bool note4Open;
     public bool note5Open;
 
-    [Header ("Materials for photos")]
-    public Material photoBull;
-    public Material photoFlamenco;
-    public Material photoElders;
-    public Material photoMariachi;
+    [Header("Materials for photos")]
+    public RawImage poemPhoto;
+    public Texture photoBull;
+    public Texture photoFlamenco;
+    public Texture photoElders;
+    public Texture photoMariachi;
 
     [Header ("Audio")]
     public AudioClip bull;
@@ -98,6 +99,7 @@ public class MissionScreen : MonoBehaviour
     {//bullfighter
         textElement.text = errand1Text;
         photo.SetActive(true);
+        poemPhoto.texture = photoBull;
         note1Open = true;
     }
     public void OpenNote2() 
@@ -114,7 +116,8 @@ public class MissionScreen : MonoBehaviour
         {
            textElement.text = errand2p3Text; 
            photo.SetActive(true);
-           //set photo material to photo
+            poemPhoto.texture = photoFlamenco;
+            //set photo material to photo
         }
         note2Open = true;
     }
@@ -129,6 +132,7 @@ public class MissionScreen : MonoBehaviour
         textElement.text = errand4Text;
         //if(missioncheckbool=true){settexttothis}
         photo.SetActive(true);
+        poemPhoto.texture = photoElders;
         note4Open = true;
     }
     public void OpenNote5()
@@ -145,6 +149,7 @@ public class MissionScreen : MonoBehaviour
         {
             textElement.text = errand5p3Text;
             photo.SetActive(true);
+            poemPhoto.texture = photoMariachi;
             //set photo material to photo
             note5Open = true;
         }
