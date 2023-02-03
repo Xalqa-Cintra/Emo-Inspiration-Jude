@@ -5,6 +5,7 @@ using UnityEngine;
 public class CamAreaCode : MonoBehaviour
 {
     public Transform plaza;
+    public Transform theatre;
     public Transform docks;
     public Transform bridge;
     public Transform lowerJaw;
@@ -16,6 +17,7 @@ public class CamAreaCode : MonoBehaviour
     public bool inBridge;
     public bool inLowerJaw; 
     public bool inGrave;
+    public bool inTheatre;
 
     Vector3 camBridge = new Vector3(42f, 90f, 0f);
     Vector3 camDock = new Vector3(42f, 0f, 0f);
@@ -33,6 +35,7 @@ public class CamAreaCode : MonoBehaviour
         inBridge = false;
         inLowerJaw = false;
         inGrave = false;
+        inTheatre = false;
     }
 
     // Update is called once per frame
@@ -64,6 +67,11 @@ public class CamAreaCode : MonoBehaviour
             camera.position = plaza.position;
             camera.transform.rotation = Quaternion.Euler(camDock);
         }
+        if(inTheatre == true)
+        {
+            camera.position = theatre.position;
+            camera.transform.rotation = Quaternion.Euler(camDock);
+        }
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -91,10 +99,14 @@ public class CamAreaCode : MonoBehaviour
         {
             inPlaza = true;
         }
+        if(other.tag == "TheatreCam")
+        {
+            inTheatre = true;
+        }
     }
     private void OnTriggerExit(Collider other) 
     {
-        if(other.tag == "DockCam")
+        if(other.tag == "Dockcam")
         {
             inDock = false;
             
@@ -116,6 +128,10 @@ public class CamAreaCode : MonoBehaviour
         if(other.tag == "PlazaCam")
         {
             inPlaza = false;
+        }
+        if(other.tag == "TheatreCam")
+        {
+            inTheatre = false;
         }
     }
 }
