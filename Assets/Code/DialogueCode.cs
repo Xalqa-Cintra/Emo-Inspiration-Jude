@@ -117,7 +117,7 @@ public class DialogueCode : MonoBehaviour
         {
             if(timerCountDownStart == false)
             {
-                timerTime = 25f;
+                timerTime = 60f;
                 timerCountDownStart = true;
             } 
             timerBox.SetActive(true);
@@ -277,23 +277,18 @@ public class DialogueCode : MonoBehaviour
                 ExitDialogue();
                 break;
             case 10:
-                textElement.text = fLines[10];
-                break;
-            case 11:
                 textElement.text = fLines[11];
                 break;
-            case 12:
+            case 11:
                 textElement.text = fLines[12];
                 break;
-            case 13:
+            case 12:
                 textElement.text = fLines[13];
                 doneFlamenco = true;
                 Canvas.GetComponent<MissionScreen>().mariachiPart3 = true;
                 break;
-            case 14:
+            case 13:
                 ExitDialogue();
-                break;
-            default:
                 break;
         }
     }
