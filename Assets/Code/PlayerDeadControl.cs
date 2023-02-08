@@ -9,7 +9,7 @@ public class PlayerDeadControl : MonoBehaviour
     public GameObject livingPlayer;
     public GameObject deadCam;
     public Rigidbody deadRigidbody;
-
+    public Animator myAnim;
     public GameObject FollowingNPC;
 
     public float maxSpeed = 1f;
@@ -46,6 +46,7 @@ public class PlayerDeadControl : MonoBehaviour
                 Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
+            myAnim.SetFloat("Speed", deadRigidbody.velocity.magnitude);
         }
 
     }
