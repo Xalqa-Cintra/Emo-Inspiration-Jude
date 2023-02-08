@@ -31,6 +31,7 @@ public class PlayerLiveControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        
         isAlive = true;
         livingPlayer.tag = "LivePlayer";
         canMove = true;
@@ -77,11 +78,11 @@ public class PlayerLiveControl : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.LeftShift))
             {
-                maxSpeed = 12;
+                maxSpeed = 15;
                 
             }else if(Input.GetKeyUp(KeyCode.LeftShift))
             {
-                maxSpeed = 8;
+                maxSpeed = 12;
 
                 
             }

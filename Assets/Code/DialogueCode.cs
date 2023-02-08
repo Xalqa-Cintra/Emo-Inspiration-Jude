@@ -39,6 +39,9 @@ public class DialogueCode : MonoBehaviour
     public GameObject timerBox;
     public GameObject mariachiQuestBox;
 
+    public AudioClip notif; 
+    public AudioSource phoneIcon;
+
     [Header("Flamenco Text")] // got mixed up while codin
     public string[] mLines;
 
@@ -309,6 +312,7 @@ public class DialogueCode : MonoBehaviour
         inDialogue = false;
         yes = false;
         no = false;
+        phoneIcon.PlayOneShot(notif);
     }
 
     public void ButtonYesFlamenco()

@@ -20,26 +20,21 @@ public class MissionScreen : MonoBehaviour
     public GameObject closePhone;
     public GameObject HUD;
     public GameObject photo;
-
     [Header("Errand Tab")]
     public GameObject errandUI;
     public GameObject errandTextBox;
-
     [Header ("Text")]
     public string errand1Text = ("Go help the bullfighter, More will be added in the full game");
     public string errand3Text = ("Go fix the bridge");
     public string errand4Text = ("Go help the elderly");
-    
     [Header ("Flamenco phases")]
     public string errand2Text = ("Go help the Flamenco dancer");
     public string errand2p2Text = ("");
     public string errand2p3Text = ("");
-
     [Header("Mariachi phases")]
     public string errand5Text = ("Go save Mr. Mariachi");
     public string errand5p2Text;
     public string errand5p3Text;
-
     [Header ("Variables")]
     public bool flamencoPart2;
     public bool flamencoPart3;
@@ -50,20 +45,19 @@ public class MissionScreen : MonoBehaviour
     public bool note3Open;
     public bool note4Open;
     public bool note5Open;
-
     [Header("Materials for photos")]
     public RawImage poemPhoto;
     public Texture photoBull;
     public Texture photoFlamenco;
     public Texture photoElders;
     public Texture photoMariachi;
-
-    [Header ("Audio")]
+    [Header("Audio")]
     public AudioClip bull;
     public AudioClip flam;
     public AudioClip elder;
     public AudioClip Music;
     public AudioSource photoButton;
+
 
     Text textElement;
 
@@ -106,31 +100,28 @@ public class MissionScreen : MonoBehaviour
     {//flamenco
         if(flamencoPart2 == false && flamencoPart3 == false)
         {
-           textElement.text = errand2Text; 
+           textElement.text = errand2Text;
         }
         if(flamencoPart2 == true && flamencoPart3 == false)
         {
-           textElement.text = errand2p2Text; 
+           textElement.text = errand2p2Text;
         }
         if(flamencoPart2 == true && flamencoPart3 == true)
         {
            textElement.text = errand2p3Text; 
            photo.SetActive(true);
-            poemPhoto.texture = photoFlamenco;
-            //set photo material to photo
+           poemPhoto.texture = photoFlamenco;
         }
         note2Open = true;
     }
     public void OpenNote3() 
     {//bridge
         textElement.text = errand3Text;
-        //if(missioncheckbool=true){settexttothis}
         note3Open = true;
     }
     public void OpenNote4() 
     {//elders
         textElement.text = errand4Text;
-        //if(missioncheckbool=true){settexttothis}
         photo.SetActive(true);
         poemPhoto.texture = photoElders;
         note4Open = true;
@@ -150,9 +141,8 @@ public class MissionScreen : MonoBehaviour
             textElement.text = errand5p3Text;
             photo.SetActive(true);
             poemPhoto.texture = photoMariachi;
-            //set photo material to photo
-            note5Open = true;
         }
+        note5Open = true;
     }
     public void returnScreen()
     {
