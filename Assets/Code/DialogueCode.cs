@@ -35,6 +35,7 @@ public class DialogueCode : MonoBehaviour
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject Canvas;
+    public GameObject dvdObject;
     public GameObject End;
     public GameObject timerBox;
     public GameObject mariachiQuestBox;
@@ -63,6 +64,7 @@ public class DialogueCode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dvdObject.SetActive(false);
         textBox.SetActive(false);
         textBoxBorder.SetActive(false);
         canQuest = true;
@@ -200,6 +202,7 @@ public class DialogueCode : MonoBehaviour
                 flamencoDialogue++;
                 Canvas.GetComponent<MissionScreen>().flamencoPart2 = true;
                 canQuest = false;
+                dvdObject.SetActive(true);
                 ExitDialogue();
                 break;
             case 10:
