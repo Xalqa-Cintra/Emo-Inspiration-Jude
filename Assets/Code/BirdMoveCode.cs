@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BirdMoveCode : MonoBehaviour
 {
-   
     public Transform bird;
     public Transform birdSpawn;
     public Transform birdDescent;
@@ -14,18 +13,20 @@ public class BirdMoveCode : MonoBehaviour
     public Transform mariachiEnd;
     public GameObject player;
    
-
     public float birdMoveSpeed = 5f;
     public float birdDespawnTimer;
     public float birdSpawnDelay;
 
-
     public bool moveToFlam;
     public bool moveToMari;
+    public bool forcedTravel;
     
     public bool descended;
     public bool atTarget;
     bool setTimer;
+
+    public AudioSource eagleSound;
+
 
 
     // Start is called before the first frame update
@@ -34,12 +35,13 @@ public class BirdMoveCode : MonoBehaviour
         bird.position = birdSpawn.position;
         moveToFlam = true;
         moveToMari = false;
+        forcedTravel = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<PlayerLiveControl>().sitting == true)
+        if(player.GetComponent<PlayerLiveControl>().sitting == true || forcedTravel == true)
         {
            
             if(setTimer == false)
@@ -50,18 +52,16 @@ public class BirdMoveCode : MonoBehaviour
 
             birdSpawnDelay = birdSpawnDelay-Time.deltaTime;
 
-
-            if (birdSpawnDelay < 0 && descended == false)
+            if ((birdSpawnDelay < 0 || forcedTravel == true) && descended == false)
             {
                 bird.position = Vector3.MoveTowards(bird.position, birdDescent.position, birdMoveSpeed);
                 
             }
-            if (birdSpawnDelay < 0 && descended == true)
+            if ((birdSpawnDelay < 0 || forcedTravel == true) && descended == true)
             {
                 bird.position = Vector3.MoveTowards(bird.position, birdTarget.position, birdMoveSpeed);
             }
         }
-
         if (moveToFlam == true && moveToMari == false)
         {
             birdTarget.position = mission1.position;
@@ -70,8 +70,7 @@ public class BirdMoveCode : MonoBehaviour
         {
             birdTarget.position = mission2.position;
         }
-
-        if(player.GetComponent<PlayerLiveControl>().sitting == false)
+        if(player.GetComponent<PlayerLiveControl>().sitting == false && forcedTravel == false)
         {
             bird.position = birdSpawn.position;
         }
@@ -82,6 +81,7 @@ public class BirdMoveCode : MonoBehaviour
         if(other.tag == "Descent")
         {
             descended = true;
+            eagleSound.Play();
         }
 
         if(other.tag == "Quest 1" || other.tag == "Quest 2")
@@ -90,7 +90,7 @@ public class BirdMoveCode : MonoBehaviour
             bird.position = birdSpawn.position;
             setTimer = false;
             descended = false;
-            
+            forcedTravel = false;
         }
     }
 

@@ -118,7 +118,7 @@ public class DialogueCode : MonoBehaviour
             bird.GetComponent<BirdMoveCode>().moveToFlam = false;
         }
 
-         if(timerStart == true )
+         if(timerStart == true)
         {
             if(timerCountDownStart == false)
             {
@@ -225,6 +225,7 @@ public class DialogueCode : MonoBehaviour
                 inDialogueFlamenco = false;
                 doneFlamenco = true;
                 mariachiQuestBox.SetActive(true);
+                bird.GetComponent<BirdMoveCode>().forcedTravel = true;
                 ExitDialogue();
                 break;
             default:
@@ -290,10 +291,13 @@ public class DialogueCode : MonoBehaviour
                 break;
             case 12:
                 textElement.text = fLines[13];
-                doneFlamenco = true;
-                Canvas.GetComponent<MissionScreen>().mariachiPart3 = true;
                 break;
             case 13:
+                textElement.text = fLines[14];
+                doneMariachi = true;
+                Canvas.GetComponent<MissionScreen>().mariachiPart3 = true;
+                break;
+            case 14:
                 ExitDialogue();
                 break;
         }
