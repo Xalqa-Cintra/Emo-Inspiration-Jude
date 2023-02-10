@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -117,7 +117,7 @@ public class PlayerLiveControl : MonoBehaviour
         {
             canMove = true;
             deadPlayer.GetComponent<PlayerDeadControl>().canMove = true;
-            //play stand up anim
+           
             sitting = false;
 
         }

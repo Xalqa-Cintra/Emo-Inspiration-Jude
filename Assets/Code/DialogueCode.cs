@@ -39,7 +39,6 @@ public class DialogueCode : MonoBehaviour
     public GameObject End;
     public GameObject timerBox;
     public GameObject mariachiQuestBox;
-
     public AudioClip notif; 
     public AudioSource phoneIcon;
 
@@ -80,7 +79,6 @@ public class DialogueCode : MonoBehaviour
         End.SetActive(false);
         timerBox.SetActive(false);
         mariachiQuestBox.SetActive(false);
-
     }
 
     // Update is called once per frame
